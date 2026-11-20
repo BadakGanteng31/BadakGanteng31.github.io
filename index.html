@@ -150,7 +150,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <div class="sec-head">
         <h2>Proyek</h2>
-        <span class="mono">3 slot / 1 terisi</span>
+        <span class="mono">04 proyek</span>
       </div>
 
       <article class="project">
@@ -170,24 +170,53 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         </div>
       </article>
 
-      <!-- SLOT KOSONG: ganti judul, deskripsi, tag, dan link. Hapus class "slot" setelah diisi. -->
-      <article class="project slot">
+      <article class="project">
         <span class="n">02</span>
         <div>
-          <h3>Slot proyek kedua</h3>
-          <p class="mono meta">Isi dengan konteks: lomba, kuliah, atau proyek pribadi</p>
-          <p>Tulis dua atau tiga kalimat: masalah yang dipecahkan, cara kamu mengerjakannya, dan hasilnya.</p>
-          <ul class="tags"><li>Tag</li><li>Tag</li></ul>
+          <h3>Prediksi Harga Emas</h3>
+          <p class="mono meta">Mini Project · Study Group I-SMILE · Tim 2 orang</p>
+          <p>Memprediksi harga emas dari indikator makroekonomi: harga perak, platinum, minyak, Indeks Dollar AS, S&amp;P 500, dan saham GDX. Model Random Forest dibandingkan dengan Linear Regression lewat 5-fold cross validation, dan mencapai R² 0,993 dengan MAE sekitar $0,98. Peran saya: analisis data, EDA, dan preprocessing.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>scikit-learn</li>
+            <li>Random Forest</li>
+            <li>EDA</li>
+            <li>Regresi</li>
+          </ul>
+          <a class="link" href="https://github.com/BadakGanteng31/Mini-Project-Machine-Learning">Lihat repositori di GitHub →</a>
         </div>
       </article>
 
-      <article class="project slot">
+      <article class="project">
         <span class="n">03</span>
         <div>
-          <h3>Slot proyek ketiga</h3>
-          <p class="mono meta">Cocok untuk karya desain atau proyek software</p>
-          <p>Tambahkan tautan demo, repositori, atau berkas desainnya.</p>
-          <ul class="tags"><li>Tag</li><li>Tag</li></ul>
+          <h3>Klasifikasi Cacat Pelat Baja</h3>
+          <p class="mono meta">Proyek Machine Learning · Klasifikasi multi-kelas</p>
+          <p>Mengklasifikasikan tujuh jenis cacat pada pelat baja dari data fitur fisik. Datanya tidak seimbang dan banyak outlier, jadi KNN (72,8%) dibandingkan dengan Random Forest yang lebih tahan terhadap keduanya dan mencapai akurasi 80,2% pada data uji.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>scikit-learn</li>
+            <li>KNN</li>
+            <li>Random Forest</li>
+            <li>Data Imbalance</li>
+          </ul>
+          <a class="link" href="https://github.com/BadakGanteng31/PROJECT-STEEL-PLATES-ML">Lihat repositori di GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="n">04</span>
+        <div>
+          <h3>AgriMonitor</h3>
+          <p class="mono meta">Aplikasi web · Dashboard pemantauan lahan</p>
+          <p>Dashboard untuk mencatat suhu, kelembapan, dan pH tanah. Setiap data baru langsung diberi status Normal, Perlu Perhatian, atau Kritis, lalu ditampilkan dalam tabel dan grafik. Dibangun dengan Flask dan dikemas dengan Docker.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Flask</li>
+            <li>Chart.js</li>
+            <li>Docker</li>
+          </ul>
+          <a class="link" href="https://github.com/BadakGanteng31/agrimonitor">Lihat repositori di GitHub →</a>
         </div>
       </article>
     </div>
@@ -204,6 +233,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         <div class="sec-head"><h2 style="font-size:clamp(24px,4vw,32px)">Alat</h2></div>
         <dl>
           <div><dt>Bahasa</dt><dd>Python</dd></div>
+          <div><dt>Library</dt><dd>pandas, scikit-learn, Flask</dd></div>
           <div><dt>Editor</dt><dd>VS Code</dd></div>
           <div><dt>Kolaborasi</dt><dd>Git, GitHub</dd></div>
           <div><dt>Desain</dt><dd>[isi alat desain kamu]</dd></div>
