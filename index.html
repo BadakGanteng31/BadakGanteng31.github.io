@@ -41,7 +41,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ember); outline
 header { border-bottom: 1px solid var(--line); }
 nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; flex-wrap: wrap; }
 nav .brand { font-family: var(--font-mono); font-size: 13px; text-decoration: none; color: var(--text); }
-nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+nav ul { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; margin: 0; padding: 0; }
 nav ul a { font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-decoration: none; }
 nav ul a:hover { color: var(--ember); }
 
@@ -96,6 +96,15 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 
 .project.slot h3 { font-weight: 500; }
 .project.slot .tags li { border-style: dashed; }
 
+/* pengalaman & prestasi */
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.rows li { display: grid; grid-template-columns: 56px 1fr; gap: 4px 12px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.rows .n { font-family: var(--font-mono); font-size: 13px; color: var(--ember); }
+.rows strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3.6vw, 30px); letter-spacing: -.02em; line-height: 1.1; }
+.rows .meta { display: block; margin-top: 6px; }
+.rank { font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: 1; color: var(--ember); }
+@media (min-width: 640px) { .rows.wide li { grid-template-columns: 120px 1fr; } }
+
 /* about / contact */
 .cols { display: grid; grid-template-columns: 1fr; gap: 40px; }
 @media (min-width: 800px) { .cols { grid-template-columns: 1.3fr 1fr; gap: 72px; } }
@@ -124,6 +133,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <a class="brand" href="#atas">deftrian.wicaksana</a>
       <ul>
         <li><a href="#proyek">Proyek</a></li>
+        <li><a href="#pengalaman">Pengalaman</a></li>
+        <li><a href="#prestasi">Prestasi</a></li>
         <li><a href="#tentang">Tentang</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
@@ -219,6 +230,48 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           <a class="link" href="https://github.com/BadakGanteng31/agrimonitor">Lihat repositori di GitHub →</a>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section id="pengalaman">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Pengalaman</h2>
+        <span class="mono">Organisasi &amp; kepanitiaan</span>
+      </div>
+      <ul class="rows wide">
+        <li>
+          <span class="n">2026</span>
+          <div>
+            <strong>Ketua Pelaksana</strong>
+            <span class="mono meta">Compile Tech Fest 2026</span>
+          </div>
+        </li>
+        <li>
+          <span class="n">2026</span>
+          <div>
+            <strong>Ketua Divisi Acara</strong>
+            <span class="mono meta">CENTURION 2026</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="prestasi">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Prestasi</h2>
+      </div>
+      <ul class="rows wide">
+        <li>
+          <span class="rank">#3</span>
+          <div>
+            <strong>Juara 3 I-SMILE Mini Project Machine Learning</strong>
+            <span class="mono meta">Study Group I-SMILE · Prediksi Harga Emas · <a class="link" href="#proyek">Lihat proyek →</a></span>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
