@@ -2,40 +2,54 @@
 
 /* ---------- warna & font ---------- */
 :root {
-  --ink: #0d1117;
-  --ink-2: #151b24;
-  --ink-3: #1b2330;
-  --line: #243040;
-  --text: #e8ecf2;
-  --text-2: #c5cdd9;
-  --muted: #8b97a8;
-  --meta: #a1abba;
-  --ember: #ff7a45;
-  --ember-2: #c4512a;
-  --on-ember: #0d1117;
-  --scrim: rgba(13, 17, 23, .75);
-  --backdrop: rgba(5, 8, 12, .82);
-  --photo-filter: brightness(.74) saturate(.75) contrast(1.05);
+  --ink: #070914;
+  --ink-2: #0e1124;
+  --ink-3: #151935;
+  --line: #222749;
+  --text: #eef0ff;
+  --text-2: #c6c9e6;
+  --muted: #8d91b6;
+  --meta: #a3a7c9;
+  --ember: #ff8a5c;
+  --ember-2: #ff5f8f;
+  --violet: #9b7bff;
+  --grad: linear-gradient(90deg, #ff8a5c, #ff5f8f 55%, #9b7bff);
+  --on-ember: #ffffff;
+  --glass: rgba(255, 255, 255, .04);
+  --glass-hover: rgba(255, 255, 255, .07);
+  --aurora-1: rgba(124, 92, 255, .38);
+  --aurora-2: rgba(0, 200, 255, .2);
+  --aurora-3: rgba(255, 110, 90, .25);
+  --scrim: rgba(7, 9, 20, .72);
+  --backdrop: rgba(4, 5, 12, .82);
+  --photo-filter: brightness(.78) saturate(.8) contrast(1.05);
   --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --ink: #f5f3ee;
-  --ink-2: #ebe8e0;
-  --ink-3: #e2ded4;
-  --line: #d6d1c4;
-  --text: #15191f;
-  --text-2: #39414d;
-  --muted: #5f6774;
-  --meta: #4f5763;
-  --ember: #d4521c;
-  --ember-2: #a63c12;
+  --ink: #f6f5fc;
+  --ink-2: #eeecf8;
+  --ink-3: #e5e2f3;
+  --line: #dcd8ee;
+  --text: #15142b;
+  --text-2: #3b3a58;
+  --muted: #625f80;
+  --meta: #535070;
+  --ember: #e2552b;
+  --ember-2: #d6336b;
+  --violet: #6d4fe0;
+  --grad: linear-gradient(90deg, #e2552b, #d6336b 55%, #6d4fe0);
   --on-ember: #ffffff;
-  --scrim: rgba(245, 243, 238, .85);
-  --backdrop: rgba(30, 28, 24, .55);
-  --photo-filter: brightness(.96) saturate(.9);
+  --glass: rgba(255, 255, 255, .55);
+  --glass-hover: rgba(255, 255, 255, .75);
+  --aurora-1: rgba(124, 92, 255, .22);
+  --aurora-2: rgba(0, 170, 230, .14);
+  --aurora-3: rgba(255, 120, 90, .2);
+  --scrim: rgba(246, 245, 252, .85);
+  --backdrop: rgba(20, 18, 40, .5);
+  --photo-filter: brightness(.97) saturate(.9);
   color-scheme: light;
 }
 
@@ -173,11 +187,7 @@ section .sec-head h2::after { content: "."; color: var(--ember); }
 
 /* cahaya + grid halus di belakang nama */
 .hero-top { isolation: isolate; }
-.hero-top::before {
-  content: ""; position: absolute; z-index: -1; left: -20%; top: -40%; width: 90%; height: 160%; pointer-events: none;
-  background:
-    radial-gradient(closest-side, color-mix(in srgb, var(--ember) 22%, transparent), transparent 75%) 30% 45% / 70% 70% no-repeat;
-}
+.hero-top::before { content: none; }
 .hero-top::after {
   content: ""; position: absolute; z-index: -2; inset: -72px -20px -40px; pointer-events: none;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -460,3 +470,50 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   .js .reveal { opacity: 1; transform: none; transition: none; }
   body { transition: none; }
 }
+
+
+/* ================= TEMA AURORA ================= */
+body { background: var(--ink); }
+body::before {
+  content: ""; position: fixed; inset: -20%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40% 35% at 18% 20%, var(--aurora-1), transparent 70%),
+    radial-gradient(35% 30% at 82% 12%, var(--aurora-2), transparent 70%),
+    radial-gradient(40% 35% at 60% 82%, var(--aurora-3), transparent 70%);
+  filter: blur(30px);
+  animation: aurora 26s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-3%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(3%, -2%, 0) scale(1.02); }
+}
+
+/* teks & elemen bergradien */
+.hero h1 span, section .sec-head h2::after {
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.btn-primary, .filter button[aria-pressed="true"], .to-top, .scroll-progress span, .live, .live::after {
+  background: var(--grad); border-color: transparent; color: var(--on-ember);
+}
+.btn-primary:hover, .to-top:hover { background: var(--grad); filter: brightness(1.08) saturate(1.1); }
+.btn-primary { box-shadow: 0 6px 24px -6px color-mix(in srgb, var(--ember-2) 60%, transparent); }
+.cursor { background: var(--grad); }
+.marquee i { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* kartu kaca buram */
+.award, .cert, .contact-card, .learning, .learning-list li, .d-stat {
+  background: var(--glass); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.contact-card:hover, .award:hover { background: var(--glass-hover); }
+.project:hover { background: var(--glass); }
+.marquee { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.chips li, .tags li { background: var(--glass); }
+.gallery { background: var(--ink); }
+.g-head { background: var(--ink); }
+.ctrl, .btn:not(.btn-primary) { background: var(--glass); }
+
+/* garis tepi bergradien saat disorot */
+.award:hover, .contact-card:hover, .cert:hover { border-color: color-mix(in srgb, var(--ember-2) 55%, var(--line)); }
+
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
