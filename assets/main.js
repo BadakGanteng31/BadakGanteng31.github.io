@@ -249,7 +249,9 @@
       items = [];
     }
     if (c.catatan) body.append(el("p", { className: "d-note", textContent: c.catatan }));
-    body.append(el("div", { className: "g-links" }, [el("a", { className: "link", href: P.repo, target: "_blank", rel: "noopener", textContent: t("js.repo") + " →" })]));
+    body.append(el("div", { className: "g-links" }, [P.repo
+      ? el("a", { className: "link", href: P.repo, target: "_blank", rel: "noopener", textContent: t("js.repo") + " →" })
+      : el("span", { className: "repo-private mono", textContent: "🔒 " + t("js.privat") })]));
     current = () => openProject(key);
     if (!dlg.open) dlg.showModal();
     dlg.scrollTop = 0;

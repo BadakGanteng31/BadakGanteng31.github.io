@@ -45,7 +45,9 @@ const TEKS_EN = {
   "proyek.tim": "Team",
   "proyek.detail": "View details",
   "proyek.repo": "GitHub repository →",
-  "proyek.peat": "An early-warning system for peatland fires in Riau, Indonesia, built with explainable machine learning. Hotspot data from NASA FIRMS is combined with weather data from Open-Meteo. My role: modeling and evaluation.",
+  "proyek.peat": "A machine learning early-warning system that scores the risk of a VIIRS hotspot being detected within the next 7 days on a 0.25° grid over Riau's peatlands, with SHAP explanations. Uses 2019–2025 data from NASA FIRMS and Open-Meteo weather. My role: features, modeling, and SHAP.",
+  "proyek.tim3": "Team of 3 · in progress",
+  "proyek.privat": "Private repo · project in progress",
   "tag.geo": "Geospatial",
   "emas.t": "Gold Price Prediction",
   "emas.meta": "Mini Project · I-SMILE Study Group · 3rd Place · Team of 2",
@@ -111,7 +113,8 @@ const TEKS_EN = {
   "js.sebelum": "Previous photo",
   "js.berikut": "Next photo",
   "js.grafik": "Charts &amp; screenshots",
-  "js.repo": "Open the GitHub repository"
+  "js.repo": "Open the GitHub repository",
+  "js.privat": "Private repository · project in progress"
 };
 
 const KATA_KETIK = {
@@ -125,7 +128,8 @@ const TEKS_ID_JS = {
   "js.sebelum": "Foto sebelumnya",
   "js.berikut": "Foto berikutnya",
   "js.grafik": "Grafik &amp; tampilan",
-  "js.repo": "Buka repositori GitHub"
+  "js.repo": "Buka repositori GitHub",
+  "js.privat": "Repositori privat · proyek masih berjalan"
 };
 
 /*
@@ -254,36 +258,49 @@ const DOKUMENTASI = {
 */
 const PROYEK = {
   peat: {
-    repo: "https://github.com/BadakGanteng31/I-SMILE-K64",
+    // Repo masih privat. Saat sudah publik, ganti null dengan "https://github.com/BadakGanteng31/PEAT-SHIELD-K64"
+    // dan kembalikan tautan di index.html.
+    repo: null,
     gambar: [],
     id: {
       kicker: "Machine Learning Solution Challenge · Cyan Academic Competition",
       judul: "PEAT-SHIELD",
-      ringkas: "Sistem peringatan dini kebakaran lahan gambut di Riau berbasis explainable machine learning.",
-      stats: [],
-      bagian: [
-        { h: "Masalah", p: "Kebakaran lahan gambut di Riau terjadi berulang dan sulit dipadamkan begitu meluas. Peringatan yang lebih awal memberi waktu untuk mencegah dan menanganinya." },
-        { h: "Data", p: "Titik panas (hotspot) dari NASA FIRMS digabung dengan data cuaca dari Open-Meteo dan dataset geospasial." },
-        { h: "Pendekatan", p: "Model machine learning yang hasil prediksinya bisa dijelaskan (explainable), supaya terlihat faktor apa yang mendorong risiko kebakaran." },
-        { h: "Peran saya", p: "Modeling dan evaluasi. Rekan tim mengurus data cuaca dan dataset geospasial, lalu hasil kerja masing-masing digabung jadi satu kode akhir." }
+      ringkas: "Sistem peringatan dini yang memberi skor risiko terdeteksinya hotspot VIIRS dalam 7 hari ke depan pada grid 0,25° lahan gambut Riau, dengan penjelasan SHAP untuk setiap skor.",
+      stats: [
+        { v: "272", l: "sel grid 0,25°" },
+        { v: "2019–2025", l: "periode data" },
+        { v: "58.834", l: "hotspot VIIRS di Riau" },
+        { v: "7 hari", l: "horizon prediksi" }
       ],
-      catatan: "Detail teknis lengkap ada di repositori GitHub tim."
+      bagian: [
+        { h: "Masalah", p: "Kebakaran lahan gambut di Riau terjadi berulang dan sulit dipadamkan begitu meluas. Proyek ini memberi skor risiko per grid-hari agar patroli bisa diprioritaskan lebih awal. Skor ini bukan probabilitas, dan hotspot tidak sama dengan kebakaran pasti." },
+        { h: "Data", list: ["NASA FIRMS VIIRS S-NPP: 1.107.992 deteksi mentah, difilter ke confidence nominal dan high, lalu 58.834 hotspot di kotak Riau diagregasi per grid-hari.", "Cuaca harian Open-Meteo (ERA5-Land) di titik pusat setiap grid: suhu maksimum, hujan, kelembapan, angin, dan kelembapan tanah dua kedalaman.", "Total 695.504 baris grid-hari (272 sel × 2.557 hari); hari tanpa hotspot tetap masuk sebagai 0."] },
+        { h: "Fitur", p: "Akumulasi hujan 7 dan 14 hari, kelembapan tanah 7 hari, jumlah hari kering berturut-turut, hari ber-hotspot dalam 7 hari sebelumnya, dan pola musim. Fitur di hari t hanya memakai data sampai hari t, jadi tidak ada kebocoran dari masa depan." },
+        { h: "Validasi", p: "Split berdasarkan waktu: latih 2019–2023, validasi 2024, uji 2025, dengan jeda (embargo) 7 hari di setiap batas. Model dan ambang dipilih hanya dari validasi 2024 dengan memaksimalkan F2, dan data uji 2025 hanya dibuka satu kali." },
+        { h: "Peran saya", p: "Fitur, model, SHAP, dan notebook. Nizham mengurus data mentah dan audit, Yosafat mengurus grid geospasial, panel data, dan peta." }
+      ],
+      catatan: "Proyek masih berjalan. Hasil model akan ditambahkan setelah evaluasi selesai."
     },
     en: {
       kicker: "Machine Learning Solution Challenge · Cyan Academic Competition",
       judul: "PEAT-SHIELD",
-      ringkas: "An explainable machine learning early-warning system for peatland fires in Riau, Indonesia.",
-      stats: [],
-      bagian: [
-        { h: "Problem", p: "Peatland fires in Riau recur every year and are hard to put out once they spread. Earlier warnings give more time to prevent and respond to them." },
-        { h: "Data", p: "Hotspot data from NASA FIRMS combined with weather data from Open-Meteo and geospatial datasets." },
-        { h: "Approach", p: "A machine learning model whose predictions can be explained, so it is clear which factors drive fire risk." },
-        { h: "My role", p: "Modeling and evaluation. Teammates handled the weather data and geospatial datasets, and everyone's work was merged into one final codebase." }
+      ringkas: "An early-warning system that scores the risk of a VIIRS hotspot being detected within the next 7 days on a 0.25° grid over Riau's peatlands, with a SHAP explanation for every score.",
+      stats: [
+        { v: "272", l: "0.25° grid cells" },
+        { v: "2019–2025", l: "data period" },
+        { v: "58,834", l: "VIIRS hotspots in Riau" },
+        { v: "7 days", l: "prediction horizon" }
       ],
-      catatan: "Full technical details are in the team's GitHub repository."
+      bagian: [
+        { h: "Problem", p: "Peatland fires in Riau recur and are hard to put out once they spread. The project gives a risk score per grid cell per day so patrols can be prioritized earlier. The score is not a probability, and a hotspot is not a confirmed fire." },
+        { h: "Data", list: ["NASA FIRMS VIIRS S-NPP: 1,107,992 raw detections, filtered to nominal and high confidence, with 58,834 hotspots inside the Riau box aggregated per grid cell per day.", "Daily Open-Meteo weather (ERA5-Land) at the center of each cell: max temperature, rain, humidity, wind, and soil moisture at two depths.", "695,504 grid-day rows in total (272 cells × 2,557 days); days without hotspots are kept as 0."] },
+        { h: "Features", p: "7- and 14-day rainfall, 7-day soil moisture, consecutive dry days, hotspot days in the previous 7 days, and seasonal patterns. Features on day t only use data up to day t, so nothing leaks from the future." },
+        { h: "Validation", p: "Time-based split: train 2019–2023, validation 2024, test 2025, with a 7-day embargo at each boundary. The model and threshold are chosen only on 2024 validation by maximizing F2, and the 2025 test set is opened only once." },
+        { h: "My role", p: "Features, modeling, SHAP, and notebooks. Nizham handles raw data and auditing; Yosafat handles the geospatial grid, data panel, and maps." }
+      ],
+      catatan: "The project is still in progress. Model results will be added once evaluation is complete."
     }
   },
-
   emas: {
     repo: "https://github.com/BadakGanteng31/Mini-Project-Machine-Learning",
     gambar: [
