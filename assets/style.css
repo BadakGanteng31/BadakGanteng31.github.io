@@ -157,9 +157,56 @@ nav ul a:hover { color: var(--ember); }
 .fields p { grid-column: 2; margin: 0; color: var(--muted); font-size: 15px; }
 
 /* ---------- bagian ---------- */
+main { counter-reset: sec; }
 section { padding: 64px 0; border-top: 1px solid var(--line); }
 .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
 h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 6vw, 52px); letter-spacing: -.025em; line-height: 1; margin: 0; }
+
+/* ---------- aksen ---------- */
+/* nomor bagian + titik oranye di setiap judul bagian */
+section .sec-head h2 { counter-increment: sec; }
+section .sec-head h2::before {
+  content: "/ " counter(sec, decimal-leading-zero); display: block; margin-bottom: 12px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 400; letter-spacing: .08em; color: var(--ember);
+}
+section .sec-head h2::after { content: "."; color: var(--ember); }
+
+/* cahaya + grid halus di belakang nama */
+.hero-top { isolation: isolate; }
+.hero-top::before {
+  content: ""; position: absolute; z-index: -1; left: -20%; top: -40%; width: 90%; height: 160%; pointer-events: none;
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--ember) 22%, transparent), transparent 75%) 30% 45% / 70% 70% no-repeat;
+}
+.hero-top::after {
+  content: ""; position: absolute; z-index: -2; inset: -72px -20px -40px; pointer-events: none;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px; opacity: .45;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 25% 45%, #000 0%, transparent 75%);
+          mask-image: radial-gradient(ellipse 60% 70% at 25% 45%, #000 0%, transparent 75%);
+}
+
+/* pita berjalan */
+.marquee { overflow: hidden; border-top: 1px solid var(--line); background: var(--ink-2); padding: 18px 0; }
+.marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+.marquee-track > div { display: flex; align-items: center; flex: none; }
+.marquee span {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3.4vw, 34px); letter-spacing: -.02em; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1.2px var(--muted); padding: 0 22px; white-space: nowrap;
+}
+.marquee span:nth-of-type(3n+1) { color: var(--text); -webkit-text-stroke: 0; }
+.marquee i { font-style: normal; color: var(--ember); font-size: 18px; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee + section { border-top: 1px solid var(--line); }
+
+/* sorotan cahaya mengikuti kursor di kartu */
+.spot { position: relative; isolation: isolate; }
+.spot::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--ember) 13%, transparent), transparent 60%);
+}
+.spot:hover::before { opacity: 1; }
 
 /* ---------- proyek ---------- */
 .project {
@@ -398,6 +445,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor { animation: none; }
+  .marquee-track { animation: none; }
   .live::after { animation: none; }
   #exp-list li.pop { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
