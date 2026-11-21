@@ -104,7 +104,12 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 
 .rows .meta { display: block; margin-top: 6px; }
 .rank { font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: 1; color: var(--ember); }
 @media (min-width: 640px) { .rows.wide li { grid-template-columns: 120px 1fr; } }
-.medal { display: inline-block; width: 28px; height: 28px; border-radius: 99px; box-shadow: inset 0 0 0 3px rgba(255,255,255,.25); }
+.medal { position: relative; display: inline-grid; place-items: center; width: 34px; height: 34px; margin-top: 15px; border-radius: 99px; font-family: var(--font-display); font-weight: 800; font-size: 17px; line-height: 1; color: rgba(13,17,23,.78); box-shadow: inset 0 0 0 3px rgba(255,255,255,.35), inset 0 -3px 0 3px rgba(0,0,0,.12); }
+.medal::before, .medal::after { content: ""; position: absolute; top: -15px; width: 10px; height: 18px; z-index: -1; }
+.medal::before { left: 7px; transform: skewX(18deg); background: var(--ember); }
+.medal::after { right: 7px; transform: skewX(-18deg); background: #c4512a; }
+.rows li > span:first-child { position: relative; z-index: 0; }
+.rows li:has(.medal) { align-items: start; }
 .medal.silver { background: linear-gradient(145deg, #e6eaf0, #9aa4b2); }
 .medal.bronze { background: linear-gradient(145deg, #e0a36b, #9a5b2c); }
 
@@ -351,14 +356,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           </div>
         </li>
         <li>
-          <span><span class="medal silver" aria-hidden="true"></span></span>
+          <span><span class="medal silver" aria-hidden="true">2</span></span>
           <div>
             <strong>Medali Perak Olimpiade Kimia SMA Tingkat Nasional</strong>
             <span class="mono meta">YAPRESINDO OSPAN · 2022</span>
           </div>
         </li>
         <li>
-          <span><span class="medal bronze" aria-hidden="true"></span></span>
+          <span><span class="medal bronze" aria-hidden="true">3</span></span>
           <div>
             <strong>Medali Perunggu Olimpiade Biologi SMA Tingkat Nasional</strong>
             <span class="mono meta">YAPRESINDO OSPAN · 2022</span>
