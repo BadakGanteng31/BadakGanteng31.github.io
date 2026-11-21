@@ -4,225 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Deftrian Dwi Wicaksana</title>
+<meta name="description" content="Portofolio Deftrian Dwi Wicaksana, mahasiswa Teknik Komputer Telkom University: proyek machine learning, pengalaman organisasi, prestasi, dan sertifikasi.">
+<script>
+  // Pasang tema & bahasa sebelum halaman tergambar, supaya tidak berkedip.
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem("theme"); l = localStorage.getItem("lang"); } catch (e) {}
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q === "en" || q === "id") l = q;
+    d.dataset.theme = t === "light" ? "light" : "dark";
+    if (l === "en") d.lang = "en";
+    d.classList.add("js");
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* Layout idea: satu kolom panjang, nama raksasa di atas, proyek sebagai baris indeks yang bisa disorot. */
-:root {
-  --ink: #0d1117;
-  --ink-2: #151b24;
-  --line: #243040;
-  --text: #e8ecf2;
-  --muted: #8b97a8;
-  --ember: #ff7a45;
-  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--ink);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
-.mono { font-family: var(--font-mono); font-size: 13px; letter-spacing: .04em; color: var(--muted); }
-
-/* nav */
-header { border-bottom: 1px solid var(--line); }
-nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; flex-wrap: wrap; }
-nav .brand { font-family: var(--font-mono); font-size: 13px; text-decoration: none; color: var(--text); }
-nav ul { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; margin: 0; padding: 0; }
-nav ul a { font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-decoration: none; }
-nav ul a:hover { color: var(--ember); }
-
-/* hero */
-.hero { padding: 72px 0 56px; }
-.hero h1 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(52px, 12.5vw, 140px);
-  line-height: .92;
-  letter-spacing: -.035em;
-  margin: 18px 0 28px;
-  text-wrap: balance;
-}
-.hero h1 span { color: var(--ember); }
-.hero-top { position: relative; }
-.hero-text { position: relative; z-index: 1; }
-.hero-photo { margin: -72px -20px 0; height: 400px; position: relative; overflow: hidden; }
-.hero-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;
-  filter: brightness(.74) saturate(.75) contrast(1.05);
-  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 98%);
-          mask-image: linear-gradient(to bottom, #000 45%, transparent 98%);
-}
-.hero-photo + .hero-text { margin-top: -96px; }
-@media (min-width: 860px) {
-  .hero-top { min-height: 500px; display: flex; align-items: center; }
-  .hero-text { max-width: 62%; }
-  .hero-photo {
-    position: absolute; margin: 0; z-index: 0;
-    top: -72px; bottom: -40px; height: auto;
-    right: calc((100vw - min(1040px, 100vw)) / -2 - 20px);
-    width: min(50vw, 720px);
-  }
-  .hero-photo img {
-    object-position: 50% 22%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%), linear-gradient(to bottom, #000 62%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, #000 42%), linear-gradient(to bottom, #000 62%, transparent 100%);
-    -webkit-mask-composite: source-in; mask-composite: intersect;
-  }
-  .hero-photo + .hero-text { margin-top: 0; }
-  .hero h1 { font-size: clamp(52px, 8.6vw, 104px); }
-}
-.hero .lead { max-width: 52ch; font-size: clamp(18px, 2.4vw, 22px); color: #c5cdd9; margin: 0 0 40px; }
-.cursor { display: inline-block; width: 9px; height: 1em; background: var(--ember); vertical-align: -2px; margin-left: 4px; animation: blink 1.1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
-
-.fields { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.fields li { display: grid; grid-template-columns: 56px 1fr; gap: 8px 12px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.fields .n { font-family: var(--font-mono); font-size: 13px; color: var(--ember); }
-.fields strong { font-family: var(--font-display); font-weight: 500; font-size: 22px; letter-spacing: -.01em; }
-.fields p { grid-column: 2; margin: 0; color: var(--muted); font-size: 15px; }
-
-/* sections */
-section { padding: 64px 0; border-top: 1px solid var(--line); }
-.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
-h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 6vw, 52px); letter-spacing: -.025em; line-height: 1; margin: 0; }
-
-/* projects */
-.project {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 6px 12px;
-  padding: 28px 16px;
-  margin: 0 -16px;
-  border-bottom: 1px solid var(--line);
-  border-radius: 6px;
-  transition: background .2s;
-}
-.project:hover { background: var(--ink-2); }
-.project .n { font-family: var(--font-mono); font-size: 13px; color: var(--ember); padding-top: 8px; }
-.project h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 4.4vw, 40px); letter-spacing: -.02em; margin: 0 0 6px; line-height: 1.05; }
-.project .meta { margin: 0 0 14px; }
-.project p { margin: 0 0 14px; max-width: 62ch; color: #c5cdd9; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 16px; }
-.tags li { font-family: var(--font-mono); font-size: 12px; padding: 3px 10px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); }
-.link { font-family: var(--font-mono); font-size: 13px; color: var(--ember); text-decoration: none; border-bottom: 1px solid transparent; }
-.link:hover { border-bottom-color: var(--ember); }
-.project.slot { opacity: .62; }
-.project.slot h3 { font-weight: 500; }
-.project.slot .tags li { border-style: dashed; }
-
-/* pengalaman & prestasi */
-.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.rows li { display: grid; grid-template-columns: 56px 1fr; gap: 4px 12px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-.rows .n { font-family: var(--font-mono); font-size: 13px; color: var(--ember); }
-.rows strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 3.6vw, 30px); letter-spacing: -.02em; line-height: 1.1; }
-.rows .meta { display: block; margin-top: 6px; }
-.rank { font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: 1; color: var(--ember); }
-@media (min-width: 640px) { .rows.wide li { grid-template-columns: 120px 1fr; } }
-.medal { position: relative; display: inline-grid; place-items: center; width: 34px; height: 34px; margin-top: 15px; border-radius: 99px; font-family: var(--font-display); font-weight: 800; font-size: 17px; line-height: 1; color: rgba(13,17,23,.78); box-shadow: inset 0 0 0 3px rgba(255,255,255,.35), inset 0 -3px 0 3px rgba(0,0,0,.12); }
-.medal::before, .medal::after { content: ""; position: absolute; top: -15px; width: 10px; height: 18px; z-index: -1; }
-.medal::before { left: 7px; transform: skewX(18deg); background: var(--ember); }
-.medal::after { right: 7px; transform: skewX(-18deg); background: #c4512a; }
-.rows li > span:first-child { position: relative; z-index: 0; }
-.rows li:has(.medal) { align-items: start; }
-.medal.silver { background: linear-gradient(145deg, #e6eaf0, #9aa4b2); }
-.medal.bronze { background: linear-gradient(145deg, #e0a36b, #9a5b2c); }
-
-/* sertifikasi */
-.certs { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 720px) { .certs { grid-template-columns: repeat(2, 1fr); } }
-.cert { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--ink-2); display: flex; flex-direction: column; }
-.cert-thumb { display: block; width: 100%; padding: 0; border: 0; background: #1b2330; cursor: zoom-in; aspect-ratio: 968 / 684; overflow: hidden; }
-.cert-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
-.cert-thumb:hover img { transform: scale(1.03); }
-.cert-body { padding: 18px 20px 20px; }
-.cert-body strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.015em; line-height: 1.15; }
-.cert-body .meta { display: block; margin-top: 6px; }
-.cert-facts { margin: 14px 0 0; border-top: 1px solid var(--line); }
-.cert-facts > div { padding: 8px 0; }
-.cert-facts dd { font-family: var(--font-mono); font-size: 13px; font-weight: 400; word-break: break-all; }
-
-/* about / contact */
-.cols { display: grid; grid-template-columns: 1fr; gap: 40px; }
-@media (min-width: 800px) { .cols { grid-template-columns: 1.3fr 1fr; gap: 72px; } }
-.about p { margin: 0 0 16px; max-width: 58ch; color: #c5cdd9; }
-dl { margin: 0; border-top: 1px solid var(--line); }
-dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-dt { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
-dd { margin: 0; font-weight: 500; }
-dd a { text-decoration: none; border-bottom: 1px solid var(--ember); }
-dd a:hover { color: var(--ember); }
-
-footer { border-top: 1px solid var(--line); padding: 28px 0 48px; }
-footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-
-/* tombol & galeri dokumentasi */
-.doc-btn {
-  margin-top: 14px; display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-mono); font-size: 13px; color: var(--ember);
-  background: transparent; border: 1px solid var(--line); border-radius: 99px;
-  padding: 7px 14px; cursor: pointer; transition: border-color .2s, background .2s;
-}
-.doc-btn:hover { border-color: var(--ember); background: var(--ink-2); }
-.doc-btn .count { color: var(--muted); }
-.gallery {
-  width: min(960px, calc(100vw - 32px)); max-height: calc(100dvh - 32px);
-  padding: 0; border: 1px solid var(--line); border-radius: 10px;
-  background: var(--ink); color: var(--text); overflow: auto;
-}
-.gallery::backdrop { background: rgba(5, 8, 12, .82); backdrop-filter: blur(4px); }
-.g-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 18px 20px; border-bottom: 1px solid var(--line); }
-.g-head h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 4vw, 30px); letter-spacing: -.02em; line-height: 1.1; margin: 4px 0 0; }
-.g-close { flex: none; width: 40px; height: 40px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--text); font-size: 20px; cursor: pointer; }
-.g-close:hover { border-color: var(--ember); color: var(--ember); }
-.g-body { padding: 20px; }
-.g-desc { margin: 0 0 18px; color: #c5cdd9; max-width: 65ch; }
-.g-stage { position: relative; background: var(--ink-2); border-radius: 8px; overflow: hidden; display: grid; place-items: center; height: min(58dvh, 62vw, 600px); }
-.g-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
-.g-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 99px; border: 1px solid var(--line); background: rgba(13,17,23,.75); color: var(--text); font-size: 18px; cursor: pointer; }
-.g-nav:hover { border-color: var(--ember); color: var(--ember); }
-.g-prev { left: 10px; } .g-next { right: 10px; }
-.g-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 12px 0 0; }
-.g-thumbs { display: flex; gap: 8px; overflow-x: auto; padding: 14px 0 2px; }
-.g-thumbs button { flex: none; width: 72px; height: 52px; padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; background: var(--ink-2); cursor: pointer; opacity: .6; }
-.g-thumbs button[aria-current="true"] { border-color: var(--ember); opacity: 1; }
-.g-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.g-empty { height: auto; padding: 48px 20px; text-align: center; border: 1px dashed var(--line); background: transparent; }
-.g-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 18px; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .cursor { animation: none; }
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <nav aria-label="Navigasi utama">
+    <nav aria-label="Navigasi utama" data-i18n-attr="aria-label:nav.label">
       <a class="brand" href="#atas">deftrian.wicaksana</a>
       <ul>
-        <li><a href="#proyek">Proyek</a></li>
-        <li><a href="#pengalaman">Pengalaman</a></li>
-        <li><a href="#prestasi">Prestasi</a></li>
-        <li><a href="#sertifikasi">Sertifikasi</a></li>
-        <li><a href="#tentang">Tentang</a></li>
-        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#proyek" data-i18n="nav.proyek">Proyek</a></li>
+        <li><a href="#pengalaman" data-i18n="nav.pengalaman">Pengalaman</a></li>
+        <li><a href="#prestasi" data-i18n="nav.prestasi">Prestasi</a></li>
+        <li><a href="#sertifikasi" data-i18n="nav.sertifikasi">Sertifikasi</a></li>
+        <li><a href="#keahlian" data-i18n="nav.keahlian">Keahlian</a></li>
+        <li><a href="#tentang" data-i18n="nav.tentang">Tentang</a></li>
+        <li><a href="#kontak" data-i18n="nav.kontak">Kontak</a></li>
       </ul>
+      <div class="controls">
+        <button class="ctrl lang-toggle" type="button" aria-label="Ganti bahasa / Switch language">
+          <span data-lang="id">ID</span>/<span data-lang="en">EN</span>
+        </button>
+        <button class="ctrl theme-toggle" type="button" aria-label="Ganti mode terang/gelap" data-i18n-attr="aria-label:ctrl.theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
@@ -232,70 +55,83 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="hero">
       <div class="hero-top">
         <figure class="hero-photo">
-          <img src="foto-profil.webp" alt="Foto Deftrian Dwi Wicaksana" width="900" height="1257" fetchpriority="high">
+          <img src="foto-profil.webp" alt="Foto Deftrian Dwi Wicaksana" data-i18n-attr="alt:hero.alt" width="900" height="1257" fetchpriority="high">
         </figure>
         <div class="hero-text">
-          <div class="mono">Portofolio / 2026</div>
+          <div class="mono" data-i18n="hero.kicker">Portofolio / 2026</div>
           <h1>Deftrian Dwi<br>Wicaksana<span>.</span></h1>
-          <p class="lead">Membuat model machine learning, antarmuka, dan visual yang rapi. Saat ini fokus di modeling dan evaluasi untuk peringatan dini kebakaran lahan gambut.<span class="cursor" aria-hidden="true"></span></p>
+          <p class="lead"><span data-i18n="hero.lead">Membuat model machine learning, antarmuka, dan visual yang rapi. Saat ini fokus di modeling dan evaluasi untuk peringatan dini kebakaran lahan gambut.</span><span class="cursor" aria-hidden="true"></span></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="cv-btn" href="cv.pdf" download hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span data-i18n="hero.cv">Download CV</span>
+            </a>
+            <a class="btn" href="#proyek"><span data-i18n="hero.proyek">Lihat proyek</span> ↓</a>
+          </div>
         </div>
       </div>
 
-      <ul class="fields" aria-label="Bidang">
-        <li><span class="n">01</span><strong>Machine Learning</strong><p>Modeling, evaluasi, dan model yang bisa dijelaskan.</p></li>
-        <li><span class="n">02</span><strong>Software</strong><p>Kode yang dikerjakan bersama tim dan digabung jadi satu.</p></li>
-        <li><span class="n">03</span><strong>Desain</strong><p>Tampilan yang jelas dibaca dan enak dipakai.</p></li>
+      <ul class="fields" aria-label="Bidang" data-i18n-attr="aria-label:fields.label">
+        <li><span class="n">01</span><strong>Machine Learning</strong><p data-i18n="fields.ml">Modeling, evaluasi, dan model yang bisa dijelaskan.</p></li>
+        <li><span class="n">02</span><strong>Software</strong><p data-i18n="fields.sw">Kode yang dikerjakan bersama tim dan digabung jadi satu.</p></li>
+        <li><span class="n">03</span><strong data-i18n="fields.design.t">Desain</strong><p data-i18n="fields.design">Tampilan yang jelas dibaca dan enak dipakai.</p></li>
       </ul>
     </div>
   </div>
 
   <section id="proyek">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Proyek</h2>
-        <span class="mono">04 proyek</span>
+      <div class="sec-head reveal">
+        <h2 data-i18n="nav.proyek">Proyek</h2>
+        <span class="mono" data-i18n="proyek.count">04 proyek</span>
       </div>
 
-      <article class="project">
+      <article class="project reveal">
         <span class="n">01</span>
         <div>
           <h3>PEAT-SHIELD</h3>
-          <p class="mono meta">Machine Learning Solution Challenge · Cyan Academic Competition · Tim I-SMILE-K64</p>
-          <p>Sistem peringatan dini kebakaran lahan gambut di Riau dengan explainable machine learning. Data titik panas dari NASA FIRMS digabung dengan data cuaca dari Open-Meteo. Peran saya: modeling dan evaluasi.</p>
+          <p class="mono meta">Machine Learning Solution Challenge · Cyan Academic Competition · <span data-i18n="proyek.tim">Tim</span> I-SMILE-K64</p>
+          <p data-i18n="proyek.peat">Sistem peringatan dini kebakaran lahan gambut di Riau dengan explainable machine learning. Data titik panas dari NASA FIRMS digabung dengan data cuaca dari Open-Meteo. Peran saya: modeling dan evaluasi.</p>
           <ul class="tags">
             <li>Python</li>
             <li>Explainable ML</li>
             <li>NASA FIRMS</li>
             <li>Open-Meteo</li>
-            <li>Geospasial</li>
+            <li data-i18n="tag.geo">Geospasial</li>
           </ul>
-          <a class="link" href="https://github.com/BadakGanteng31/I-SMILE-K64">Lihat repositori di GitHub →</a>
+          <div class="project-links">
+            <button class="doc-btn" type="button" data-project="peat" data-i18n="proyek.detail">Lihat detail</button>
+            <a class="link" href="https://github.com/BadakGanteng31/I-SMILE-K64" target="_blank" rel="noopener" data-i18n="proyek.repo">Repositori GitHub →</a>
+          </div>
         </div>
       </article>
 
-      <article class="project">
+      <article class="project reveal">
         <span class="n">02</span>
         <div>
-          <h3>Prediksi Harga Emas</h3>
-          <p class="mono meta">Mini Project · Study Group I-SMILE · Juara 3 · Tim 2 orang</p>
-          <p>Memprediksi harga emas dari indikator makroekonomi: harga perak, platinum, minyak, Indeks Dollar AS, S&amp;P 500, dan saham GDX. Model Random Forest dibandingkan dengan Linear Regression lewat 5-fold cross validation, dan mencapai R² 0,993 dengan MAE sekitar $0,98. Peran saya: analisis data, EDA, dan preprocessing.</p>
+          <h3 data-i18n="emas.t">Prediksi Harga Emas</h3>
+          <p class="mono meta" data-i18n="emas.meta">Mini Project · Study Group I-SMILE · Juara 3 · Tim 2 orang</p>
+          <p data-i18n="emas.p">Memprediksi harga emas dari indikator makroekonomi: harga perak, platinum, minyak, Indeks Dollar AS, S&amp;P 500, dan saham GDX. Model Random Forest dibandingkan dengan Linear Regression lewat 5-fold cross validation, dan mencapai R² 0,993 dengan MAE sekitar $0,98. Peran saya: analisis data, EDA, dan preprocessing.</p>
           <ul class="tags">
             <li>Python</li>
             <li>scikit-learn</li>
             <li>Random Forest</li>
             <li>EDA</li>
-            <li>Regresi</li>
+            <li data-i18n="tag.regresi">Regresi</li>
           </ul>
-          <a class="link" href="https://github.com/BadakGanteng31/Mini-Project-Machine-Learning">Lihat repositori di GitHub →</a>
+          <div class="project-links">
+            <button class="doc-btn" type="button" data-project="emas" data-i18n="proyek.detail">Lihat detail</button>
+            <a class="link" href="https://github.com/BadakGanteng31/Mini-Project-Machine-Learning" target="_blank" rel="noopener" data-i18n="proyek.repo">Repositori GitHub →</a>
+          </div>
         </div>
       </article>
 
-      <article class="project">
+      <article class="project reveal">
         <span class="n">03</span>
         <div>
-          <h3>Klasifikasi Cacat Pelat Baja</h3>
-          <p class="mono meta">Proyek Machine Learning · Klasifikasi multi-kelas</p>
-          <p>Mengklasifikasikan tujuh jenis cacat pada pelat baja dari data fitur fisik. Datanya tidak seimbang dan banyak outlier, jadi KNN (72,8%) dibandingkan dengan Random Forest yang lebih tahan terhadap keduanya dan mencapai akurasi 80,2% pada data uji.</p>
+          <h3 data-i18n="baja.t">Klasifikasi Cacat Pelat Baja</h3>
+          <p class="mono meta" data-i18n="baja.meta">Proyek Machine Learning · Klasifikasi multi-kelas</p>
+          <p data-i18n="baja.p">Mengklasifikasikan tujuh jenis cacat pada pelat baja dari data fitur fisik. Datanya tidak seimbang dan banyak outlier, jadi KNN (72,8%) dibandingkan dengan Random Forest yang lebih tahan terhadap keduanya dan mencapai akurasi 80,2% pada data uji.</p>
           <ul class="tags">
             <li>Python</li>
             <li>scikit-learn</li>
@@ -303,23 +139,29 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
             <li>Random Forest</li>
             <li>Data Imbalance</li>
           </ul>
-          <a class="link" href="https://github.com/BadakGanteng31/PROJECT-STEEL-PLATES-ML">Lihat repositori di GitHub →</a>
+          <div class="project-links">
+            <button class="doc-btn" type="button" data-project="baja" data-i18n="proyek.detail">Lihat detail</button>
+            <a class="link" href="https://github.com/BadakGanteng31/PROJECT-STEEL-PLATES-ML" target="_blank" rel="noopener" data-i18n="proyek.repo">Repositori GitHub →</a>
+          </div>
         </div>
       </article>
 
-      <article class="project">
+      <article class="project reveal">
         <span class="n">04</span>
         <div>
           <h3>AgriMonitor</h3>
-          <p class="mono meta">Aplikasi web · Dashboard pemantauan lahan</p>
-          <p>Dashboard untuk mencatat suhu, kelembapan, dan pH tanah. Setiap data baru langsung diberi status Normal, Perlu Perhatian, atau Kritis, lalu ditampilkan dalam tabel dan grafik. Dibangun dengan Flask dan dikemas dengan Docker.</p>
+          <p class="mono meta" data-i18n="agri.meta">Aplikasi web · Dashboard pemantauan lahan</p>
+          <p data-i18n="agri.p">Dashboard untuk mencatat suhu, kelembapan, dan pH tanah. Setiap data baru langsung diberi status Normal, Perlu Perhatian, atau Kritis, lalu ditampilkan dalam tabel dan grafik. Dibangun dengan Flask dan dikemas dengan Docker.</p>
           <ul class="tags">
             <li>Python</li>
             <li>Flask</li>
             <li>Chart.js</li>
             <li>Docker</li>
           </ul>
-          <a class="link" href="https://github.com/BadakGanteng31/agrimonitor">Lihat repositori di GitHub →</a>
+          <div class="project-links">
+            <button class="doc-btn" type="button" data-project="agri" data-i18n="proyek.detail">Lihat detail</button>
+            <a class="link" href="https://github.com/BadakGanteng31/agrimonitor" target="_blank" rel="noopener" data-i18n="proyek.repo">Repositori GitHub →</a>
+          </div>
         </div>
       </article>
     </div>
@@ -327,65 +169,65 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
   <section id="pengalaman">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Pengalaman</h2>
-        <span class="mono">Organisasi &amp; kepanitiaan</span>
+      <div class="sec-head reveal">
+        <h2 data-i18n="nav.pengalaman">Pengalaman</h2>
+        <span class="mono" data-i18n="peng.sub">Organisasi &amp; kepanitiaan</span>
       </div>
       <ul class="rows wide">
-        <li>
+        <li class="reveal">
           <span class="n">2026</span>
           <div>
-            <strong>Divisi Acara</strong>
+            <strong data-i18n="role.divisi">Divisi Acara</strong>
             <span class="mono meta">CONNECTION 2026 · Computer Engineering Community Service Organization</span>
-            <button class="doc-btn" type="button" data-doc="cecso">Lihat dokumentasi <span class="count"></span></button>
+            <button class="doc-btn" type="button" data-doc="cecso"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span class="n">2026</span>
           <div>
-            <strong>Divisi Acara</strong>
-            <span class="mono meta">OVERCLOCK · Kaderisasi Tingkat 1 Teknik Komputer</span>
-            <button class="doc-btn" type="button" data-doc="overclock">Lihat dokumentasi <span class="count"></span></button>
+            <strong data-i18n="role.divisi">Divisi Acara</strong>
+            <span class="mono meta" data-i18n="peng.overclock">OVERCLOCK · Kaderisasi Tingkat 1 Teknik Komputer</span>
+            <button class="doc-btn" type="button" data-doc="overclock"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span class="n">2026</span>
           <div>
-            <strong>Ketua Pelaksana</strong>
-            <span class="mono meta">Compile Tech Fest 2026 · HIMA Teknik Komputer Telkom University</span>
-            <button class="doc-btn" type="button" data-doc="compile">Lihat dokumentasi <span class="count"></span></button>
+            <strong data-i18n="role.ketuaPelaksana">Ketua Pelaksana</strong>
+            <span class="mono meta" data-i18n="peng.compile">Compile Tech Fest 2026 · HIMA Teknik Komputer Telkom University</span>
+            <button class="doc-btn" type="button" data-doc="compile"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span class="n">2026</span>
           <div>
-            <strong>Ketua Divisi Acara</strong>
-            <span class="mono meta">Studi Banding · Himpunan Mahasiswa Teknik Komputer × Himpunan Mahasiswa Akuntansi</span>
-            <button class="doc-btn" type="button" data-doc="studibanding">Lihat dokumentasi <span class="count"></span></button>
+            <strong data-i18n="role.ketuaDivisi">Ketua Divisi Acara</strong>
+            <span class="mono meta" data-i18n="peng.studi">Studi Banding · Himpunan Mahasiswa Teknik Komputer × Himpunan Mahasiswa Akuntansi</span>
+            <button class="doc-btn" type="button" data-doc="studibanding"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span class="n">2026</span>
           <div>
-            <strong>Ketua Divisi Acara</strong>
+            <strong data-i18n="role.ketuaDivisi">Ketua Divisi Acara</strong>
             <span class="mono meta">CENTURION 2026</span>
-            <button class="doc-btn" type="button" data-doc="centurion">Lihat dokumentasi <span class="count"></span></button>
+            <button class="doc-btn" type="button" data-doc="centurion"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span class="n">2025</span>
           <div>
             <strong>Volunteer</strong>
             <span class="mono meta">Mari Mengajar 2025</span>
-            <button class="doc-btn" type="button" data-doc="marimengajar">Lihat dokumentasi <span class="count"></span></button>
+            <button class="doc-btn" type="button" data-doc="marimengajar"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span class="n">2025</span>
           <div>
             <strong>Volunteer</strong>
             <span class="mono meta">Farm With TEAM 2025</span>
-            <button class="doc-btn" type="button" data-doc="farm">Lihat dokumentasi <span class="count"></span></button>
+            <button class="doc-btn" type="button" data-doc="farm"><span data-i18n="doc.lihat">Lihat dokumentasi</span> <span class="count"></span></button>
           </div>
         </li>
       </ul>
@@ -394,28 +236,28 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
   <section id="prestasi">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Prestasi</h2>
+      <div class="sec-head reveal">
+        <h2 data-i18n="nav.prestasi">Prestasi</h2>
       </div>
       <ul class="rows wide">
-        <li>
+        <li class="reveal">
           <span><span class="medal bronze" aria-hidden="true">3</span></span>
           <div>
-            <strong>Juara 3 I-SMILE Mini Project Machine Learning</strong>
-            <span class="mono meta">Study Group I-SMILE · Prediksi Harga Emas · <a class="link" href="#proyek">Lihat proyek →</a></span>
+            <strong data-i18n="pres.ismile">Juara 3 I-SMILE Mini Project Machine Learning</strong>
+            <span class="mono meta"><span data-i18n="pres.ismile.meta">Study Group I-SMILE · Prediksi Harga Emas</span> · <a class="link" href="#proyek" data-i18n="pres.lihat">Lihat proyek →</a></span>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span><span class="medal silver" aria-hidden="true">2</span></span>
           <div>
-            <strong>Medali Perak Olimpiade Kimia SMA Tingkat Nasional</strong>
+            <strong data-i18n="pres.kimia">Medali Perak Olimpiade Kimia SMA Tingkat Nasional</strong>
             <span class="mono meta">YAPRESINDO OSPAN · 2022</span>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <span><span class="medal bronze" aria-hidden="true">3</span></span>
           <div>
-            <strong>Medali Perunggu Olimpiade Biologi SMA Tingkat Nasional</strong>
+            <strong data-i18n="pres.bio">Medali Perunggu Olimpiade Biologi SMA Tingkat Nasional</strong>
             <span class="mono meta">YAPRESINDO OSPAN · 2022</span>
           </div>
         </li>
@@ -425,21 +267,21 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
   <section id="sertifikasi">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Sertifikasi</h2>
-        <span class="mono">Klik sertifikat untuk memperbesar</span>
+      <div class="sec-head reveal">
+        <h2 data-i18n="nav.sertifikasi">Sertifikasi</h2>
+        <span class="mono" data-i18n="sert.sub">Klik sertifikat untuk memperbesar</span>
       </div>
       <div class="certs">
-        <article class="cert">
-          <button class="cert-thumb" type="button" data-doc="sert-rcna" aria-label="Lihat sertifikat RCNA Routing &amp; Switching">
-            <img src="sertifikat/rcna-routing-switching.webp" alt="Sertifikat RCNA Routing &amp; Switching atas nama Deftrian Dwi Wicaksana" loading="lazy">
+        <article class="cert reveal">
+          <button class="cert-thumb" type="button" data-doc="sert-rcna" aria-label="Lihat sertifikat RCNA Routing &amp; Switching" data-i18n-attr="aria-label:sert.rcna.aria">
+            <img src="sertifikat/rcna-routing-switching.webp" alt="Sertifikat RCNA Routing &amp; Switching atas nama Deftrian Dwi Wicaksana" data-i18n-attr="alt:sert.rcna.alt" loading="lazy">
           </button>
           <div class="cert-body">
             <strong>RCNA Routing &amp; Switching</strong>
             <span class="mono meta">Ruijie Networks · Ruijie Certified Network Associate</span>
             <dl class="cert-facts">
-              <div><dt>Berlaku hingga</dt><dd>14 Oktober 2027</dd></div>
-              <div><dt>No. sertifikat</dt><dd>038782RCNA-Routing&amp;Switching02532</dd></div>
+              <div><dt data-i18n="sert.berlaku">Berlaku hingga</dt><dd data-i18n="sert.rcna.tgl">14 Oktober 2027</dd></div>
+              <div><dt data-i18n="sert.no">No. sertifikat</dt><dd>038782RCNA-Routing&amp;Switching02532</dd></div>
             </dl>
           </div>
         </article>
@@ -447,32 +289,80 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     </div>
   </section>
 
-  <section id="tentang">
-    <div class="wrap cols">
-      <div class="about">
-        <div class="sec-head"><h2>Tentang</h2></div>
-        <p>Deftrian Dwi Wicaksana merupakan mahasiswa S1 Teknik Komputer di Telkom University, Bandung, angkatan 2024. Memiliki ketertarikan pada perkembangan teknologi, khususnya Machine Learning, Internet of Things (IoT), dan Cyber Security. Senang mempelajari hal-hal baru, mengeksplorasi ide, serta mengembangkan kemampuan di bidang teknologi dan kepemimpinan.</p>
-        <p>Memiliki pengalaman dalam memimpin dan mengelola berbagai kegiatan organisasi maupun kepanitiaan, di antaranya sebagai Ketua Pelaksana Compile Tech Fest 2026 dan Ketua Divisi Acara CENTURION 2026. Di bidang akademik, berhasil meraih juara 3 dalam kompetisi I-SMILE Mini Project Machine Learning serta aktif mengembangkan keterampilan teknis melalui berbagai proyek dan kegiatan pembelajaran. Pengalaman tersebut membentuk kemampuan dalam leadership, teamwork, problem solving, dan project management.</p>
+  <section id="keahlian">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 data-i18n="nav.keahlian">Keahlian</h2>
+        <span class="mono" data-i18n="skill.sub">Yang dipakai di proyek &amp; organisasi</span>
       </div>
-      <div>
-        <div class="sec-head"><h2 style="font-size:clamp(24px,4vw,32px)">Alat</h2></div>
-        <dl>
-          <div><dt>Bahasa</dt><dd>Python</dd></div>
-          <div><dt>Library</dt><dd>pandas, scikit-learn, Flask</dd></div>
-          <div><dt>Editor</dt><dd>VS Code</dd></div>
-          <div><dt>Kolaborasi</dt><dd>Git, GitHub</dd></div>
-          <div><dt>Desain</dt><dd>[isi alat desain kamu]</dd></div>
-        </dl>
+      <div class="skills">
+        <div class="skill-group reveal">
+          <h3><span class="n">01</span><span data-i18n="skill.ml">Machine Learning &amp; Data</span></h3>
+          <ul class="chips">
+            <li class="strong">Python</li>
+            <li class="strong">scikit-learn</li>
+            <li>pandas</li>
+            <li>NumPy</li>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+            <li data-i18n="skill.regkls">Regresi &amp; klasifikasi</li>
+            <li>Random Forest</li>
+            <li>KNN</li>
+            <li>Cross-validation</li>
+            <li>Explainable ML</li>
+            <li>EDA</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3><span class="n">02</span><span data-i18n="skill.web">Web &amp; Software</span></h3>
+          <ul class="chips">
+            <li class="strong">Flask</li>
+            <li>HTML &amp; CSS</li>
+            <li>Chart.js</li>
+            <li>Docker</li>
+            <li class="strong">Git &amp; GitHub</li>
+            <li>VS Code</li>
+            <li>Jupyter / Google Colab</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3><span class="n">03</span><span data-i18n="skill.net">Jaringan &amp; IoT</span></h3>
+          <ul class="chips">
+            <li class="strong">Routing &amp; Switching (RCNA)</li>
+            <li>Internet of Things</li>
+            <li>Cyber Security</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3><span class="n">04</span><span data-i18n="skill.org">Organisasi</span></h3>
+          <ul class="chips">
+            <li class="strong">Leadership</li>
+            <li>Project management</li>
+            <li>Teamwork</li>
+            <li>Problem solving</li>
+            <li>Public speaking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="wrap">
+      <div class="about reveal">
+        <div class="sec-head"><h2 data-i18n="nav.tentang">Tentang</h2></div>
+        <p data-i18n="about.p1">Deftrian Dwi Wicaksana merupakan mahasiswa S1 Teknik Komputer di Telkom University, Bandung, angkatan 2024. Memiliki ketertarikan pada perkembangan teknologi, khususnya Machine Learning, Internet of Things (IoT), dan Cyber Security. Senang mempelajari hal-hal baru, mengeksplorasi ide, serta mengembangkan kemampuan di bidang teknologi dan kepemimpinan.</p>
+        <p data-i18n="about.p2">Memiliki pengalaman dalam memimpin dan mengelola berbagai kegiatan organisasi maupun kepanitiaan, di antaranya sebagai Ketua Pelaksana Compile Tech Fest 2026 dan Ketua Divisi Acara CENTURION 2026. Di bidang akademik, berhasil meraih juara 3 dalam kompetisi I-SMILE Mini Project Machine Learning serta aktif mengembangkan keterampilan teknis melalui berbagai proyek dan kegiatan pembelajaran. Pengalaman tersebut membentuk kemampuan dalam leadership, teamwork, problem solving, dan project management.</p>
       </div>
     </div>
   </section>
 
   <section id="kontak">
     <div class="wrap cols">
-      <div>
-        <h2>Ayo ngobrol.</h2>
+      <div class="reveal">
+        <h2 data-i18n="kontak.t">Ayo ngobrol.</h2>
       </div>
-      <dl>
+      <dl class="reveal">
         <div><dt>GitHub</dt><dd><a href="https://github.com/BadakGanteng31" target="_blank" rel="noopener">BadakGanteng31</a></dd></div>
         <div><dt>Email</dt><dd><a href="mailto:yanriant31@gmail.com">yanriant31@gmail.com</a></dd></div>
         <div><dt>WhatsApp</dt><dd><a href="https://wa.me/6287887397466" target="_blank" rel="noopener">+62 878 8739 7466</a></dd></div>
@@ -485,7 +375,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 <footer>
   <div class="wrap">
     <span class="mono">© 2026 Deftrian Dwi Wicaksana</span>
-    <a class="mono" href="#atas">Kembali ke atas ↑</a>
+    <a class="mono" href="#atas" data-i18n="footer.atas">Kembali ke atas ↑</a>
   </div>
 </footer>
 
@@ -495,191 +385,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <div class="mono" id="g-kicker"></div>
       <h3 id="g-title"></h3>
     </div>
-    <button class="g-close" type="button" aria-label="Tutup">×</button>
+    <button class="g-close" type="button" aria-label="Tutup" data-i18n-attr="aria-label:ctrl.tutup">×</button>
   </div>
   <div class="g-body" id="g-body"></div>
 </dialog>
 
-<script>
-/*
-  DOKUMENTASI PENGALAMAN
-  Taruh foto di folder dokumentasi/<nama>/ lalu tulis di daftar "foto" di bawah.
-  Contoh: { src: "dokumentasi/compile/pembukaan.jpg", caption: "Pembukaan acara" }
-  "link" boleh diisi tautan lain, misalnya postingan Instagram atau sertifikat.
-*/
-const DOKUMENTASI = {
-  "sert-rcna": {
-    judul: "RCNA Routing & Switching",
-    acara: "Sertifikasi · Ruijie Networks",
-    deskripsi: "",
-    foto: [{ src: "sertifikat/rcna-routing-switching.webp", caption: "Ruijie Certified Network Associate, berlaku hingga 14 Oktober 2027" }],
-    link: []
-  },
-  marimengajar: {
-    judul: "Volunteer",
-    acara: "Mari Mengajar 2025",
-    deskripsi: "",
-    foto: [],
-    link: []
-  },
-  farm: {
-    judul: "Volunteer",
-    acara: "Farm With TEAM 2025",
-    deskripsi: "",
-    foto: [],
-    link: []
-  },
-  cecso: {
-    judul: "Divisi Acara",
-    acara: "CONNECTION 2026 · Computer Engineering Community Service Organization",
-    deskripsi: "Program pengabdian masyarakat Himpunan Mahasiswa Teknik Komputer Telkom University dengan tagline #JanganMatiTanpaAbdi, berisi permainan edukatif dan kegiatan belajar bersama siswa sekolah dasar. Sebagai anggota Divisi Acara, saya ikut menyiapkan dan menjalankan rangkaian kegiatan.",
-    foto: [
-      { src: "dokumentasi/connection/01.webp", caption: "Permainan bersama siswa di halaman sekolah" },
-      { src: "dokumentasi/connection/02.webp", caption: "Permainan kelompok bersama siswa" },
-      { src: "dokumentasi/connection/03.webp", caption: "Panitia mendampingi siswa saat permainan" },
-      { src: "dokumentasi/connection/04.webp", caption: "Kegiatan belajar bersama siswa di kelas" },
-      { src: "dokumentasi/connection/05.webp", caption: "Keceriaan siswa di kelas" },
-      { src: "dokumentasi/connection/06.webp", caption: "Foto bersama siswa dan panitia di kelas" }
-    ],
-    link: []
-  },
-  overclock: {
-    judul: "Divisi Acara",
-    acara: "OVERCLOCK · Kaderisasi Tingkat 1 Teknik Komputer",
-    deskripsi: "",
-    foto: [],
-    link: []
-  },
-  compile: {
-    judul: "Ketua Pelaksana",
-    acara: "Compile Tech Fest 2026",
-    deskripsi: "Program kerja Himpunan Mahasiswa Teknik Komputer Telkom University yang ditujukan bagi siswa SMA/SMK sebagai wadah pengenalan dunia Teknik Komputer dan perkembangan teknologi. Menghadirkan rangkaian kegiatan edukatif berupa talkshow, workshop interaktif, dan pameran laboratorium yang berfokus pada bidang Hardware & Software, Internet of Things (IoT), serta Artificial Intelligence (AI). Dalam kegiatan ini, saya dipercaya sebagai Ketua Pelaksana yang bertanggung jawab atas perencanaan, koordinasi, pengelolaan tim, hingga keseluruhan pelaksanaan acara.",
-    foto: [
-      { src: "dokumentasi/compile/01.webp", caption: "Peserta tiba di lokasi acara" },
-      { src: "dokumentasi/compile/02.webp", caption: "Talkshow tentang Artificial Intelligence" },
-      { src: "dokumentasi/compile/03.webp", caption: "Workshop interaktif bersama peserta" },
-      { src: "dokumentasi/compile/04.webp", caption: "Pameran laboratorium" },
-      { src: "dokumentasi/compile/05.webp", caption: "Pendampingan peserta saat workshop" },
-      { src: "dokumentasi/compile/06.webp", caption: "Penyerahan sertifikat kepada pemateri" },
-      { src: "dokumentasi/compile/07.webp", caption: "Penyerahan sertifikat" },
-      { src: "dokumentasi/compile/08.webp", caption: "Foto bersama seluruh peserta dan panitia" }
-    ],
-    link: []
-  },
-  centurion: {
-    judul: "Ketua Divisi Acara",
-    acara: "CENTURION 2026",
-    deskripsi: "Kompetisi olahraga antartim dengan cabang seperti futsal dan basket, menggunakan sistem perolehan medali Grand Olympian serta penilaian supporter. Sebagai Ketua Divisi Acara, saya mengatur jalannya acara, termasuk menjelaskan teknis kompetisi kepada peserta saat technical meeting.",
-    foto: [
-      { src: "dokumentasi/centurion/01.webp", caption: "Pembukaan technical meeting CENTURION 2026" },
-      { src: "dokumentasi/centurion/02.webp", caption: "Saya menjelaskan kriteria penilaian supporter saat technical meeting" },
-      { src: "dokumentasi/centurion/03.webp", caption: "Saya menjelaskan format Grand Olympian saat technical meeting" },
-      { src: "dokumentasi/centurion/04.webp", caption: "Tim futsal sebelum pertandingan" },
-      { src: "dokumentasi/centurion/05.webp", caption: "Pertandingan basket" }
-    ],
-    link: []
-  },
-  studibanding: {
-    judul: "Ketua Divisi Acara",
-    acara: "Studi Banding HMTK × Himpunan Mahasiswa Akuntansi",
-    deskripsi: "Kegiatan studi banding antara Himpunan Mahasiswa Teknik Komputer dan Himpunan Mahasiswa Akuntansi (PRAMASALA) Telkom University untuk bertukar pengalaman organisasi dan mempererat hubungan antarhimpunan, melalui ice breaking dan brainstorming antardepartemen yang selinier. Sebagai Ketua Divisi Acara, saya menyusun dan memandu jalannya rangkaian acara.",
-    foto: [
-      { src: "dokumentasi/studibanding/01.webp", caption: "Saya berbicara di atas panggung bersama perwakilan Himpunan Mahasiswa Akuntansi" },
-      { src: "dokumentasi/studibanding/02.webp", caption: "Saya bersiap memberi contoh ice breaking bersama perwakilan kedua himpunan" },
-      { src: "dokumentasi/studibanding/03.webp", caption: "Brainstorming antardepartemen yang selinier dari kedua himpunan" },
-      { src: "dokumentasi/studibanding/04.webp", caption: "Foto bersama Himpunan Mahasiswa Teknik Komputer dan Himpunan Mahasiswa Akuntansi" }
-    ],
-    link: []
-  }
-};
-
-(() => {
-  const dlg = document.getElementById("gallery");
-  const body = document.getElementById("g-body");
-  let items = [], idx = 0;
-
-  document.querySelectorAll("[data-doc]").forEach(btn => {
-    const d = DOKUMENTASI[btn.dataset.doc];
-    if (d && d.foto.length && btn.querySelector(".count")) btn.querySelector(".count").textContent = "(" + d.foto.length + ")";
-    btn.addEventListener("click", () => open(btn.dataset.doc));
-  });
-
-  function el(tag, props = {}, kids = []) {
-    const e = Object.assign(document.createElement(tag), props);
-    kids.forEach(k => e.append(k));
-    return e;
-  }
-
-  function open(key) {
-    const d = DOKUMENTASI[key];
-    if (!d) return;
-    items = d.foto; idx = 0;
-    document.getElementById("g-kicker").textContent = d.acara;
-    document.getElementById("g-title").textContent = d.judul;
-    body.replaceChildren();
-    if (d.deskripsi) body.append(el("p", { className: "g-desc", textContent: d.deskripsi }));
-    if (items.length) {
-      const img = el("img", { id: "g-img", alt: "" });
-      const stage = el("div", { className: "g-stage" }, [img]);
-      if (items.length > 1) {
-        const prev = el("button", { className: "g-nav g-prev", type: "button", textContent: "←", ariaLabel: "Foto sebelumnya" });
-        const next = el("button", { className: "g-nav g-next", type: "button", textContent: "→", ariaLabel: "Foto berikutnya" });
-        prev.onclick = () => show(idx - 1); next.onclick = () => show(idx + 1);
-        stage.append(prev, next);
-        let x0 = null;
-        stage.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
-        stage.addEventListener("touchend", e => {
-          if (x0 === null) return;
-          const dx = e.changedTouches[0].clientX - x0;
-          if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
-          x0 = null;
-        });
-      }
-      body.append(stage, el("div", { className: "g-meta" }, [
-        el("span", { id: "g-cap" }),
-        el("span", { className: "mono", id: "g-count" })
-      ]));
-      if (items.length > 1) {
-        body.append(el("div", { className: "g-thumbs", id: "g-thumbs" },
-          items.map((f, i) => {
-            const b = el("button", { type: "button", ariaLabel: "Foto " + (i + 1) }, [el("img", { src: f.src, alt: "", loading: "lazy" })]);
-            b.onclick = () => show(i);
-            return b;
-          })));
-      }
-      show(0);
-    } else {
-      body.append(el("div", { className: "g-stage g-empty" }, [
-        el("p", { className: "mono", textContent: "Dokumentasi belum ditambahkan." })
-      ]));
-    }
-    if (d.link.length) {
-      body.append(el("div", { className: "g-links" }, d.link.map(l =>
-        el("a", { className: "link", href: l.url, target: "_blank", rel: "noopener", textContent: l.teks + " →" }))));
-    }
-    dlg.showModal();
-  }
-
-  function show(i) {
-    if (!items.length) return;
-    idx = (i + items.length) % items.length;
-    const f = items[idx];
-    const img = document.getElementById("g-img");
-    img.src = f.src;
-    img.alt = f.caption || "Foto dokumentasi " + (idx + 1);
-    document.getElementById("g-cap").textContent = f.caption || "";
-    document.getElementById("g-count").textContent = items.length > 1 ? (idx + 1) + " / " + items.length : "";
-    document.querySelectorAll("#g-thumbs button").forEach((b, j) => b.setAttribute("aria-current", j === idx));
-  }
-
-  dlg.querySelector(".g-close").onclick = () => dlg.close();
-  dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener("keydown", e => {
-    if (items.length > 1 && e.key === "ArrowLeft") show(idx - 1);
-    if (items.length > 1 && e.key === "ArrowRight") show(idx + 1);
-  });
-})();
-</script>
-
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
 </body>
 </html>
