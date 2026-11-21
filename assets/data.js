@@ -176,6 +176,7 @@ const DOKUMENTASI = {
     },
     foto: [
       { src: "dokumentasi/compile/01.webp", caption: "Peserta tiba di lokasi acara", en: "Participants arriving at the venue" },
+      { src: "dokumentasi/compile/09.webp", caption: "Saya memberikan sambutan sebagai Ketua Pelaksana", en: "Me giving the opening speech as Project Lead" },
       { src: "dokumentasi/compile/02.webp", caption: "Talkshow tentang Artificial Intelligence", en: "Talk show on Artificial Intelligence" },
       { src: "dokumentasi/compile/03.webp", caption: "Workshop interaktif bersama peserta", en: "Interactive workshop with participants" },
       { src: "dokumentasi/compile/04.webp", caption: "Pameran laboratorium", en: "Laboratory exhibition" },
