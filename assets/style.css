@@ -254,6 +254,19 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 
 .chips li { font-size: 14px; padding: 5px 12px; border-radius: 99px; background: var(--ink-2); border: 1px solid var(--line); color: var(--text); }
 .chips li.strong { border-color: color-mix(in srgb, var(--ember) 55%, var(--line)); }
 
+/* ---------- sedang dipelajari ---------- */
+.learning { margin-top: 40px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--ink-2); }
+.learning-head { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.015em; }
+.live { position: relative; width: 10px; height: 10px; border-radius: 99px; background: var(--ember); }
+.live::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--ember); animation: ping 1.8s ease-out infinite; }
+@keyframes ping { from { transform: scale(1); opacity: .7; } to { transform: scale(2.8); opacity: 0; } }
+.learning-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 760px) { .learning-list { grid-template-columns: repeat(3, 1fr); } }
+.learning-list li { display: flex; gap: 12px; padding: 14px 16px; border-radius: 8px; background: var(--ink); border: 1px solid var(--line); }
+.learning-list .mono { color: var(--ember); padding-top: 3px; }
+.learning-list strong { display: block; font-size: 16px; font-weight: 600; line-height: 1.3; }
+.learning-list p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+
 /* ---------- tentang & kontak ---------- */
 .cols { display: grid; grid-template-columns: 1fr; gap: 40px; }
 @media (min-width: 800px) { .cols { grid-template-columns: 1.3fr 1fr; gap: 72px; } }
@@ -338,6 +351,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor { animation: none; }
+  .live::after { animation: none; }
   #exp-list li.pop { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   body { transition: none; }
