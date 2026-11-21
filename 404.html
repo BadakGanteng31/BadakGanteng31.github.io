@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halaman tidak ditemukan · Deftrian Dwi Wicaksana</title>
+<meta name="robots" content="noindex">
+<script>
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem("theme"); l = localStorage.getItem("lang"); } catch (e) {}
+    d.dataset.theme = t === "light" ? "light" : "dark";
+    if (l === "en") d.lang = "en";
+  })();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .nf { min-height: calc(100dvh - 62px); display: flex; align-items: center; padding-top: 48px; padding-bottom: 72px; }
+  .nf-code {
+    font-family: var(--font-display); font-weight: 800; line-height: .85; letter-spacing: -.05em;
+    font-size: clamp(120px, 30vw, 280px); margin: 18px 0 24px;
+  }
+  .nf-code span { color: var(--ember); }
+  .nf p { max-width: 46ch; font-size: clamp(18px, 2.4vw, 22px); color: var(--text-2); margin: 0 0 32px; }
+  .nf .path { font-family: var(--font-mono); font-size: 14px; color: var(--muted); word-break: break-all; }
+  .en { display: none; }
+  :root[lang="en"] .id { display: none; }
+  :root[lang="en"] .en { display: initial; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Navigasi">
+      <a class="brand" href="/">deftrian.wicaksana</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap nf">
+  <div>
+    <div class="mono"><span class="id">Error / halaman tidak ditemukan</span><span class="en">Error / page not found</span></div>
+    <div class="nf-code" aria-hidden="true">404<span>.</span></div>
+    <p>
+      <span class="id">Halaman yang kamu cari tidak ada atau sudah dipindah. Coba mulai lagi dari beranda.</span>
+      <span class="en">The page you're looking for doesn't exist or has moved. Try starting again from the home page.</span>
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/"><span class="id">Kembali ke beranda</span><span class="en">Back to home</span> →</a>
+      <a class="btn" href="/#proyek"><span class="id">Lihat proyek</span><span class="en">See projects</span></a>
+      <a class="btn" href="/#kontak"><span class="id">Kontak</span><span class="en">Contact</span></a>
+    </div>
+    <p class="path" id="path"></p>
+  </div>
+</main>
+
+<script>
+  document.getElementById("path").textContent = location.pathname;
+</script>
+</body>
+</html>
