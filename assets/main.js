@@ -30,7 +30,47 @@
     root.lang = lang() === "en" ? "id" : "en";
     store.set("lang", root.lang);
     applyLang();
+    restartTyper();
     if (dlg.open && current) current();
+  });
+
+  /* ---------- efek ketik ---------- */
+  const typer = document.querySelector(".typer-text");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+  let tw = 0, tc = 0, deleting = false, tTimer = null;
+  function words() { return KATA_KETIK[lang()]; }
+  function typeStep() {
+    const w = words()[tw % words().length];
+    if (reduce.matches) {
+      typer.textContent = w; tw++; tTimer = setTimeout(typeStep, 2600); return;
+    }
+    if (!deleting) {
+      tc++; typer.textContent = w.slice(0, tc);
+      if (tc >= w.length) { deleting = true; tTimer = setTimeout(typeStep, 1700); return; }
+      tTimer = setTimeout(typeStep, 70 + Math.random() * 50);
+    } else {
+      tc--; typer.textContent = w.slice(0, tc);
+      if (tc <= 0) { deleting = false; tw++; tTimer = setTimeout(typeStep, 350); return; }
+      tTimer = setTimeout(typeStep, 35);
+    }
+  }
+  function restartTyper() { clearTimeout(tTimer); tw = 0; tc = 0; deleting = false; typer.textContent = ""; typeStep(); }
+  restartTyper();
+
+  /* ---------- filter pengalaman ---------- */
+  const fButtons = document.querySelectorAll(".filter [data-filter]");
+  const expItems = document.querySelectorAll("#exp-list li");
+  fButtons.forEach(b => {
+    const f = b.dataset.filter;
+    b.querySelector(".fc").textContent = f === "all" ? expItems.length : [...expItems].filter(li => li.dataset.cat === f).length;
+    b.addEventListener("click", () => {
+      fButtons.forEach(x => x.setAttribute("aria-pressed", x === b));
+      expItems.forEach(li => {
+        const show = f === "all" || li.dataset.cat === f;
+        li.hidden = !show;
+        if (show) { li.classList.add("in"); li.classList.remove("pop"); void li.offsetWidth; li.classList.add("pop"); }
+      });
+    });
   });
 
   /* ---------- tema ---------- */

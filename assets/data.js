@@ -28,6 +28,11 @@ const TEKS_EN = {
   "hero.kicker": "Portfolio / 2026",
   "hero.lead": "A Computer Engineering student at Telkom University who builds data-driven solutions, from machine learning models to IoT systems, while leading teams across student organizations and events.",
   "hero.cv": "Download CV",
+  "typer.aria": "Machine Learning, IoT &amp; Arduino, Routing &amp; Switching, Project Lead, Event Organizer",
+  "filter.label": "Filter experience",
+  "filter.all": "All",
+  "filter.org": "Organization",
+  "filter.panitia": "Committee",
   "hero.proyek": "See projects",
   "fields.label": "Fields",
   "fields.ml": "Processing data, building models, and evaluating results clearly.",
@@ -96,6 +101,11 @@ const TEKS_EN = {
   "js.berikut": "Next photo",
   "js.grafik": "Charts &amp; screenshots",
   "js.repo": "Open the GitHub repository"
+};
+
+const KATA_KETIK = {
+  id: ["Machine Learning", "IoT & Arduino", "Routing & Switching", "Ketua Pelaksana", "Event Organizer"],
+  en: ["Machine Learning", "IoT & Arduino", "Routing & Switching", "Project Lead", "Event Organizer"]
 };
 
 const TEKS_ID_JS = {
