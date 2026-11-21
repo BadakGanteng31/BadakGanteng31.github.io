@@ -139,6 +139,7 @@
     document.querySelectorAll("[data-doc]").forEach(btn => {
       const d = DOKUMENTASI[btn.dataset.doc], c = btn.querySelector(".count");
       if (d && c) c.textContent = d.foto.length ? "(" + d.foto.length + ")" : "";
+      if (d && btn.classList.contains("doc-btn")) btn.hidden = !d.foto.length && !d.deskripsi;
     });
   }
 
