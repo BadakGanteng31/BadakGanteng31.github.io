@@ -103,7 +103,6 @@ const TEKS_EN = {
   "kontak.t": "Let's talk",
   "kontak.lead": "Have a question, a project idea, or a collaboration in mind? Send a message by email or through any of the channels below.",
   "kontak.email": "Send an email",
-  "wa.link": "https://wa.me/6287887397466?text=Hi%20Deftrian%2C%20I%27m%20%5Bname%5D%20from%20%5Bcompany/organization%5D.%20I%20saw%20your%20portfolio%20at%20badakganteng31.github.io%20and%20would%20like%20to%20talk%20about%20",
   "footer.atas": "Back to top ↑",
 
   // teks yang dipakai oleh main.js
