@@ -47,6 +47,21 @@
       .catch(() => {});
   }
 
+  /* ---------- progres scroll & tombol kembali ke atas ---------- */
+  const bar = document.querySelector(".scroll-progress span");
+  const toTop = document.querySelector(".to-top");
+  let ticking = false;
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const y = scrollY;
+    bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+    toTop.classList.toggle("show", y > innerHeight * 0.9);
+    ticking = false;
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener("resize", onScroll);
+  onScroll();
+
   /* ---------- animasi muncul saat scroll ---------- */
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {

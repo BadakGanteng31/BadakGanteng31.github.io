@@ -166,6 +166,29 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 
   transition: background .2s;
 }
 .project:hover { background: var(--ink-2); }
+.project > div { grid-column: 2; }
+.project-thumb {
+  grid-column: 2; grid-row: 1; display: block; width: 100%; max-width: 520px; padding: 0; margin: 0 0 16px;
+  aspect-ratio: 16 / 10; border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  background: #fff; cursor: zoom-in; position: relative;
+}
+.project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.project-thumb:hover img { transform: scale(1.04); }
+.project-thumb:hover { border-color: var(--ember); }
+@media (min-width: 760px) {
+  .project { grid-template-columns: 56px 1fr 260px; column-gap: 28px; }
+  .project-thumb { grid-column: 3; grid-row: 1 / span 2; margin: 6px 0 0; align-self: start; }
+}
+.thumb-art {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 16px;
+  background: radial-gradient(circle at 70% 35%, rgba(255,122,69,.55), transparent 45%), linear-gradient(160deg, #2a1a12, #0d1117 70%);
+  color: #fff; text-align: left;
+}
+.thumb-art b { position: relative; font-family: var(--font-display); font-weight: 800; font-size: 26px; letter-spacing: -.02em; line-height: 1; }
+.thumb-art small { position: relative; font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; color: rgba(255,255,255,.7); }
+.thumb-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 22px 22px; }
+.thumb-dot { position: absolute; width: 10px; height: 10px; border-radius: 99px; background: #ffb38f; box-shadow: 0 0 0 6px rgba(255,122,69,.25), 0 0 18px 6px rgba(255,122,69,.45); }
+.thumb-dot.d1 { left: 64%; top: 26%; } .thumb-dot.d2 { left: 78%; top: 40%; width: 7px; height: 7px; } .thumb-dot.d3 { left: 55%; top: 44%; width: 6px; height: 6px; }
 .project .n { font-family: var(--font-mono); font-size: 13px; color: var(--ember); padding-top: 8px; }
 .project h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 4.4vw, 40px); letter-spacing: -.02em; margin: 0 0 6px; line-height: 1.05; }
 .project .meta { margin: 0 0 14px; }
@@ -279,6 +302,19 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .d-sec li + li { margin-top: 4px; }
 .d-figs { margin-top: 8px; padding-top: 20px; border-top: 1px solid var(--line); }
 .d-note { margin: 18px 0 0; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 8px; font-size: 14px; color: var(--muted); }
+
+/* ---------- progres scroll & kembali ke atas ---------- */
+.scroll-progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 50; pointer-events: none; }
+.scroll-progress span { display: block; height: 100%; width: 100%; background: var(--ember); transform-origin: 0 50%; transform: scaleX(0); }
+.to-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 40; width: 46px; height: 46px; border-radius: 99px;
+  display: grid; place-items: center; background: var(--ember); color: var(--on-ember);
+  box-shadow: 0 6px 20px rgba(0,0,0,.25); opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity .25s, transform .25s, background .2s;
+}
+.to-top svg { width: 20px; height: 20px; }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--ember-2); }
 
 /* ---------- animasi muncul saat scroll ---------- */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }

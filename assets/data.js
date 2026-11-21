@@ -18,6 +18,11 @@ const TEKS_EN = {
   "nav.kontak": "Contact",
   "ctrl.theme": "Toggle light/dark mode",
   "ctrl.tutup": "Close",
+  "ctrl.atas": "Back to top",
+  "thumb.peat": "View PEAT-SHIELD details",
+  "thumb.emas": "View Gold Price Prediction details",
+  "thumb.baja": "View Steel Plate Defect Classification details",
+  "thumb.agri": "View AgriMonitor details",
 
   "hero.alt": "Photo of Deftrian Dwi Wicaksana",
   "hero.kicker": "Portfolio / 2026",

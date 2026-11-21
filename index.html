@@ -93,9 +93,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=fb2636da">
+<link rel="stylesheet" href="assets/style.css?v=0a87d99b">
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 
 <header>
   <div class="wrap">
@@ -112,7 +113,7 @@
         <li><a href="#kontak" data-i18n="nav.kontak">Kontak</a></li>
       </ul>
       <div class="controls">
-        <button class="ctrl lang-toggle" type="button" aria-label="Ganti bahasa / Switch language">
+        <button class="ctrl lang-toggle" type="button" aria-label="ID / EN: ganti bahasa / switch language">
           <span data-lang="id">ID</span>/<span data-lang="en">EN</span>
         </button>
         <button class="ctrl theme-toggle" type="button" aria-label="Ganti mode terang/gelap" data-i18n-attr="aria-label:ctrl.theme">
@@ -129,7 +130,7 @@
     <div class="hero">
       <div class="hero-top">
         <figure class="hero-photo">
-          <img src="foto-profil.webp" alt="Foto Deftrian Dwi Wicaksana" data-i18n-attr="alt:hero.alt" width="900" height="1257" fetchpriority="high">
+          <img src="foto-profil.webp" srcset="foto-profil-480.webp 480w, foto-profil.webp 900w" sizes="(min-width: 860px) min(50vw, 720px), 100vw" alt="Foto Deftrian Dwi Wicaksana" data-i18n-attr="alt:hero.alt" width="900" height="1257" fetchpriority="high">
         </figure>
         <div class="hero-text">
           <div class="mono" data-i18n="hero.kicker">Portofolio / 2026</div>
@@ -162,6 +163,7 @@
 
       <article class="project reveal">
         <span class="n">01</span>
+        <button class="project-thumb" type="button" data-project="peat" aria-label="Lihat detail PEAT-SHIELD" data-i18n-attr="aria-label:thumb.peat"><span class="thumb-art" aria-hidden="true"><span class="thumb-grid"></span><span class="thumb-dot d1"></span><span class="thumb-dot d2"></span><span class="thumb-dot d3"></span><b>PEAT-SHIELD</b><small>Riau · NASA FIRMS · Open-Meteo</small></span></button>
         <div>
           <h3>PEAT-SHIELD</h3>
           <p class="mono meta">Machine Learning Solution Challenge · Cyan Academic Competition · <span data-i18n="proyek.tim">Tim</span> I-SMILE-K64</p>
@@ -182,6 +184,7 @@
 
       <article class="project reveal">
         <span class="n">02</span>
+        <button class="project-thumb" type="button" data-project="emas" aria-label="Lihat detail Prediksi Harga Emas" data-i18n-attr="aria-label:thumb.emas"><img src="proyek/thumb/emas.webp" srcset="proyek/thumb/emas-400.webp 400w, proyek/thumb/emas.webp 800w" sizes="(min-width: 760px) 260px, min(520px, calc(100vw - 108px))" alt="Grafik nilai aktual vs prediksi harga emas" width="800" height="500" loading="lazy" decoding="async"></button>
         <div>
           <h3 data-i18n="emas.t">Prediksi Harga Emas</h3>
           <p class="mono meta" data-i18n="emas.meta">Mini Project · Study Group I-SMILE · Juara 3 · Tim 2 orang</p>
@@ -202,6 +205,7 @@
 
       <article class="project reveal">
         <span class="n">03</span>
+        <button class="project-thumb" type="button" data-project="baja" aria-label="Lihat detail Klasifikasi Cacat Pelat Baja" data-i18n-attr="aria-label:thumb.baja"><img src="proyek/thumb/baja.webp" srcset="proyek/thumb/baja-400.webp 400w, proyek/thumb/baja.webp 800w" sizes="(min-width: 760px) 260px, min(520px, calc(100vw - 108px))" alt="Grafik distribusi tujuh kelas cacat pelat baja" width="800" height="500" loading="lazy" decoding="async"></button>
         <div>
           <h3 data-i18n="baja.t">Klasifikasi Cacat Pelat Baja</h3>
           <p class="mono meta" data-i18n="baja.meta">Proyek Machine Learning · Klasifikasi multi-kelas</p>
@@ -222,6 +226,7 @@
 
       <article class="project reveal">
         <span class="n">04</span>
+        <button class="project-thumb" type="button" data-project="agri" aria-label="Lihat detail AgriMonitor" data-i18n-attr="aria-label:thumb.agri"><img src="proyek/thumb/agri.webp" srcset="proyek/thumb/agri-400.webp 400w, proyek/thumb/agri.webp 800w" sizes="(min-width: 760px) 260px, min(520px, calc(100vw - 108px))" alt="Tampilan riwayat monitoring dan grafik suhu AgriMonitor" width="800" height="500" loading="lazy" decoding="async"></button>
         <div>
           <h3>AgriMonitor</h3>
           <p class="mono meta" data-i18n="agri.meta">Aplikasi web · Dashboard pemantauan lahan</p>
@@ -483,6 +488,10 @@
   </div>
 </footer>
 
+<a class="to-top" href="#atas" aria-label="Kembali ke atas" data-i18n-attr="aria-label:ctrl.atas">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
 <dialog class="gallery" id="gallery" aria-labelledby="g-title">
   <div class="g-head">
     <div>
@@ -494,7 +503,7 @@
   <div class="g-body" id="g-body"></div>
 </dialog>
 
-<script src="assets/data.js?v=4eaa48d2"></script>
-<script src="assets/main.js?v=429101c6"></script>
+<script src="assets/data.js?v=7727e9fb"></script>
+<script src="assets/main.js?v=7fec93af"></script>
 </body>
 </html>
