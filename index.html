@@ -113,6 +113,20 @@ h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 
 .medal.silver { background: linear-gradient(145deg, #e6eaf0, #9aa4b2); }
 .medal.bronze { background: linear-gradient(145deg, #e0a36b, #9a5b2c); }
 
+/* sertifikasi */
+.certs { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 720px) { .certs { grid-template-columns: repeat(2, 1fr); } }
+.cert { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--ink-2); display: flex; flex-direction: column; }
+.cert-thumb { display: block; width: 100%; padding: 0; border: 0; background: #1b2330; cursor: zoom-in; aspect-ratio: 968 / 684; overflow: hidden; }
+.cert-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.cert-thumb:hover img { transform: scale(1.03); }
+.cert-body { padding: 18px 20px 20px; }
+.cert-body strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.015em; line-height: 1.15; }
+.cert-body .meta { display: block; margin-top: 6px; }
+.cert-facts { margin: 14px 0 0; border-top: 1px solid var(--line); }
+.cert-facts > div { padding: 8px 0; }
+.cert-facts dd { font-family: var(--font-mono); font-size: 13px; font-weight: 400; word-break: break-all; }
+
 /* about / contact */
 .cols { display: grid; grid-template-columns: 1fr; gap: 40px; }
 @media (min-width: 800px) { .cols { grid-template-columns: 1.3fr 1fr; gap: 72px; } }
@@ -177,6 +191,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         <li><a href="#proyek">Proyek</a></li>
         <li><a href="#pengalaman">Pengalaman</a></li>
         <li><a href="#prestasi">Prestasi</a></li>
+        <li><a href="#sertifikasi">Sertifikasi</a></li>
         <li><a href="#tentang">Tentang</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
@@ -373,6 +388,30 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     </div>
   </section>
 
+  <section id="sertifikasi">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Sertifikasi</h2>
+        <span class="mono">Klik sertifikat untuk memperbesar</span>
+      </div>
+      <div class="certs">
+        <article class="cert">
+          <button class="cert-thumb" type="button" data-doc="sert-rcna" aria-label="Lihat sertifikat RCNA Routing &amp; Switching">
+            <img src="sertifikat/rcna-routing-switching.webp" alt="Sertifikat RCNA Routing &amp; Switching atas nama Deftrian Dwi Wicaksana" loading="lazy">
+          </button>
+          <div class="cert-body">
+            <strong>RCNA Routing &amp; Switching</strong>
+            <span class="mono meta">Ruijie Networks · Ruijie Certified Network Associate</span>
+            <dl class="cert-facts">
+              <div><dt>Berlaku hingga</dt><dd>14 Oktober 2027</dd></div>
+              <div><dt>No. sertifikat</dt><dd>038782RCNA-Routing&amp;Switching02532</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="tentang">
     <div class="wrap cols">
       <div class="about">
@@ -434,6 +473,13 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   "link" boleh diisi tautan lain, misalnya postingan Instagram atau sertifikat.
 */
 const DOKUMENTASI = {
+  "sert-rcna": {
+    judul: "RCNA Routing & Switching",
+    acara: "Sertifikasi · Ruijie Networks",
+    deskripsi: "",
+    foto: [{ src: "sertifikat/rcna-routing-switching.webp", caption: "Ruijie Certified Network Associate, berlaku hingga 14 Oktober 2027" }],
+    link: []
+  },
   marimengajar: {
     judul: "Volunteer",
     acara: "Mari Mengajar 2025",
@@ -517,9 +563,9 @@ const DOKUMENTASI = {
   const body = document.getElementById("g-body");
   let items = [], idx = 0;
 
-  document.querySelectorAll(".doc-btn").forEach(btn => {
+  document.querySelectorAll("[data-doc]").forEach(btn => {
     const d = DOKUMENTASI[btn.dataset.doc];
-    if (d && d.foto.length) btn.querySelector(".count").textContent = "(" + d.foto.length + ")";
+    if (d && d.foto.length && btn.querySelector(".count")) btn.querySelector(".count").textContent = "(" + d.foto.length + ")";
     btn.addEventListener("click", () => open(btn.dataset.doc));
   });
 
@@ -587,7 +633,7 @@ const DOKUMENTASI = {
     img.src = f.src;
     img.alt = f.caption || "Foto dokumentasi " + (idx + 1);
     document.getElementById("g-cap").textContent = f.caption || "";
-    document.getElementById("g-count").textContent = (idx + 1) + " / " + items.length;
+    document.getElementById("g-count").textContent = items.length > 1 ? (idx + 1) + " / " + items.length : "";
     document.querySelectorAll("#g-thumbs button").forEach((b, j) => b.setAttribute("aria-current", j === idx));
   }
 
