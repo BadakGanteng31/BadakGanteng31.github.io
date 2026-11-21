@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://badakganteng31.github.io/sitemap.xml
+Sitemap: https://deftrianwicaksana.my.id/sitemap.xml
