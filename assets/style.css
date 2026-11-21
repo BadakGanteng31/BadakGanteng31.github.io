@@ -57,7 +57,8 @@
 :root { --col: 56px; }
 @media (min-width: 640px) { :root { --col: 120px; } }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { overflow-x: clip; }
 body {
   margin: 0;
   background: var(--ink);
