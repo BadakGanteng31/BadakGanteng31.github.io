@@ -101,6 +101,8 @@ const TEKS_EN = {
   "fact.prodi.v": "Bachelor of Computer Engineering · 2024",
   "fact.minat": "Interests",
   "kontak.t": "Let's talk.",
+  "kontak.lead": "Have a question, a project idea, or a collaboration in mind? Send a message by email or through any of the channels below.",
+  "kontak.email": "Send an email",
   "footer.atas": "Back to top ↑",
 
   // teks yang dipakai oleh main.js
