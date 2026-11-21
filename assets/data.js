@@ -80,7 +80,6 @@ const TEKS_EN = {
   "about.p1": "Deftrian Dwi Wicaksana is an undergraduate Computer Engineering student at Telkom University, Bandung, class of 2024, with a strong interest in emerging technology, especially Machine Learning, the Internet of Things (IoT), and Cyber Security. Deftrian enjoys learning new things, exploring ideas, and growing skills in both technology and leadership.",
   "about.p2": "Deftrian has led and managed a range of organizational activities and event committees, including serving as Project Lead of Compile Tech Fest 2026 and Head of the Events Division for CENTURION 2026. Academically, Deftrian won 3rd place in the I-SMILE Machine Learning Mini Project and keeps building technical skills through projects and learning activities. These experiences shaped strengths in leadership, teamwork, problem solving, and project management.",
   "edu.tel": "Bachelor of Computer Engineering · Bandung · 2024–present",
-  "edu.sma": "Senior high school · Jakarta · 2021–2024",
   "kontak.t": "Let's talk.",
   "footer.atas": "Back to top ↑",
 
