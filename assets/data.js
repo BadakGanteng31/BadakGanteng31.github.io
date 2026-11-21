@@ -94,9 +94,12 @@ const TEKS_EN = {
   "learn.cv": "Image classification and object detection with YOLO.",
   "learn.sec": "Cybersecurity fundamentals.",
 
-  "about.p1": "Deftrian Dwi Wicaksana is an undergraduate Computer Engineering student at Telkom University, Bandung, class of 2024, with a strong interest in emerging technology, especially Machine Learning, the Internet of Things (IoT), and Cyber Security. Deftrian enjoys learning new things, exploring ideas, and growing skills in both technology and leadership.",
-  "about.p2": "Deftrian has led and managed a range of organizational activities and event committees, including serving as Project Lead of Compile Tech Fest 2026 and Head of the Events Division for CENTURION 2026. Academically, Deftrian won 3rd place in the I-SMILE Machine Learning Mini Project and keeps building technical skills through projects and learning activities. These experiences shaped strengths in leadership, teamwork, problem solving, and project management.",
-  "edu.tel": "Bachelor of Computer Engineering · Bandung · 2024–present",
+  "about.p": "I'm a Computer Engineering student who enjoys turning ideas into things that actually run, whether that's a machine learning model, an IoT device, or an event. I think systematically, pay attention to detail, work well both independently and in a team, and adapt quickly to new things. I'm currently diving into deep learning and computer vision as the direction for my final-year thesis.",
+  "fact.lokasi": "Location",
+  "fact.kampus": "University",
+  "fact.prodi": "Program",
+  "fact.prodi.v": "Bachelor of Computer Engineering · 2024",
+  "fact.minat": "Interests",
   "kontak.t": "Let's talk.",
   "footer.atas": "Back to top ↑",
 
