@@ -182,7 +182,6 @@ const DOKUMENTASI = {
       { src: "dokumentasi/compile/04.webp", caption: "Pameran laboratorium", en: "Laboratory exhibition" },
       { src: "dokumentasi/compile/05.webp", caption: "Pendampingan peserta saat workshop", en: "Guiding participants during the workshop" },
       { src: "dokumentasi/compile/06.webp", caption: "Penyerahan sertifikat kepada pemateri", en: "Presenting a certificate to a speaker" },
-      { src: "dokumentasi/compile/07.webp", caption: "Penyerahan sertifikat", en: "Certificate presentation" },
       { src: "dokumentasi/compile/08.webp", caption: "Foto bersama seluruh peserta dan panitia", en: "Group photo of all participants and the committee" }
     ],
     link: []
