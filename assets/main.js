@@ -31,6 +31,7 @@
     store.set("lang", root.lang);
     applyLang();
     restartTyper();
+    renderGh();
     if (dlg.open && current) current();
   });
 
@@ -72,6 +73,51 @@
       });
     });
   });
+
+  /* ---------- aktivitas GitHub ---------- */
+  const gh = document.getElementById("gh");
+  let ghRepos = null;
+  function ago(iso) {
+    const diff = (new Date(iso) - Date.now()) / 1000;
+    const units = [["year", 31536000], ["month", 2592000], ["week", 604800], ["day", 86400], ["hour", 3600], ["minute", 60]];
+    const rtf = new Intl.RelativeTimeFormat(lang() === "en" ? "en" : "id", { numeric: "auto" });
+    for (const [u, s] of units) if (Math.abs(diff) >= s || u === "minute") return rtf.format(Math.round(diff / s), u);
+  }
+  function renderGh() {
+    if (!ghRepos || !ghRepos.length) return;
+    const list = document.getElementById("gh-list");
+    list.replaceChildren(...ghRepos.map(r => {
+      const d = (GH_DESKRIPSI[r.name] && GH_DESKRIPSI[r.name][lang()]) || r.description || "";
+      const meta = el("span", { className: "gh-meta mono" });
+      if (r.language) {
+        const dot = el("i", { className: "gh-dot" }); dot.style.background = GH_WARNA[r.language] || "var(--muted)";
+        meta.append(el("span", { className: "gh-lang" }, [dot, r.language]), " · ");
+      }
+      meta.append(ago(r.pushed_at));
+      if (r.stargazers_count) meta.append(" · ★ " + r.stargazers_count);
+      return el("li", {}, [el("a", { className: "gh-item", href: r.html_url, target: "_blank", rel: "noopener" }, [
+        el("b", { textContent: r.name }), d ? el("span", { className: "gh-desc", textContent: d }) : "", meta
+      ])]);
+    }));
+    document.getElementById("gh-last").textContent = t("gh.last") + " " + ago(ghRepos[0].pushed_at);
+    gh.hidden = false;
+  }
+  (function loadGh() {
+    const KEY = "gh-cache-v1";
+    try {
+      const c = JSON.parse(localStorage.getItem(KEY) || "null");
+      if (c && Date.now() - c.at < 3600e3) { ghRepos = c.data; renderGh(); return; }
+    } catch (e) {}
+    fetch("https://api.github.com/users/" + GH_USER + "/repos?sort=pushed&per_page=20", { headers: { Accept: "application/vnd.github+json" } })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(all => {
+        ghRepos = all.filter(r => !r.fork && !r.private && !GH_SEMBUNYI.includes(r.name)).slice(0, 4)
+          .map(r => ({ name: r.name, description: r.description, language: r.language, pushed_at: r.pushed_at, stargazers_count: r.stargazers_count, html_url: r.html_url }));
+        try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), data: ghRepos })); } catch (e) {}
+        renderGh();
+      })
+      .catch(() => {});
+  })();
 
   /* ---------- tema ---------- */
   document.querySelector(".theme-toggle").addEventListener("click", () => {
