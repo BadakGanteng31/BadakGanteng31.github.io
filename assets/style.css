@@ -274,23 +274,6 @@ section .sec-head h2::after { content: "."; color: var(--ember); }
 #exp-list li.pop { animation: pop .35s ease; }
 @keyframes pop { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-/* ---------- aktivitas github ---------- */
-.gh { margin-top: 40px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--glass, var(--ink-2)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
-@media (min-width: 640px) { .gh { margin-left: calc(var(--col) + 12px); } }
-.gh[hidden] { display: none; }
-.gh-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-.gh-head h3 { display: flex; align-items: center; gap: 10px; margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -.015em; }
-.gh-head h3 svg { width: 22px; height: 22px; }
-.gh-list { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
-@media (min-width: 760px) { .gh-list { grid-template-columns: repeat(2, 1fr); } }
-.gh-item { display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--ink); text-decoration: none; transition: border-color .2s, transform .2s; }
-.gh-item:hover { border-color: color-mix(in srgb, var(--ember-2) 55%, var(--line)); transform: translateY(-2px); }
-.gh-item b { font-weight: 600; overflow-wrap: anywhere; }
-.gh-desc { font-size: 14px; color: var(--text-2); }
-.gh-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0 4px; margin-top: auto; padding-top: 6px; font-size: 12px; }
-.gh-lang { display: inline-flex; align-items: center; white-space: nowrap; }
-.gh-dot { display: inline-block; flex: none; width: 9px; height: 9px; border-radius: 99px; margin-right: 4px; }
-
 /* ---------- pengalaman & prestasi ---------- */
 .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .rows li { display: grid; grid-template-columns: var(--col) 1fr; gap: 4px 12px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }

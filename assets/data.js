@@ -114,26 +114,8 @@ const TEKS_EN = {
   "js.berikut": "Next photo",
   "js.grafik": "Charts &amp; screenshots",
   "js.repo": "Open the GitHub repository",
-  "js.privat": "Private repository · project in progress",
-  "gh.t": "GitHub activity",
-  "gh.all": "See everything on GitHub →",
-  "gh.last": "Last push"
+  "js.privat": "Private repository · project in progress"
 };
-
-/*
-  AKTIVITAS GITHUB
-  Repo publik diambil langsung dari GitHub saat halaman dibuka.
-  GH_SEMBUNYI: repo yang tidak ditampilkan. GH_DESKRIPSI: deskripsi cadangan bila repo belum punya deskripsi.
-*/
-const GH_USER = "BadakGanteng31";
-const GH_SEMBUNYI = ["BadakGanteng31.github.io", "Documents"];
-const GH_DESKRIPSI = {
-  "Mini-Project-Machine-Learning": { id: "Prediksi harga emas dari indikator makroekonomi · Juara 3 I-SMILE", en: "Gold price prediction from macroeconomic indicators · 3rd place I-SMILE" },
-  "PROJECT-STEEL-PLATES-ML": { id: "Klasifikasi 7 jenis cacat pelat baja dengan KNN dan Random Forest", en: "Classifying 7 steel plate defect types with KNN and Random Forest" },
-  "agrimonitor": { id: "Dashboard Flask untuk memantau suhu, kelembapan, dan pH tanah", en: "Flask dashboard for monitoring temperature, humidity, and soil pH" },
-  "I-SMILE-K64": { id: "Machine Learning Solution Challenge", en: "Machine Learning Solution Challenge" }
-};
-const GH_WARNA = { Python: "#3572A5", "Jupyter Notebook": "#DA5B0B", HTML: "#e34c26", JavaScript: "#f1e05a", CSS: "#563d7c", "C++": "#f34b7d", C: "#555555" };
 
 const KATA_KETIK = {
   id: ["Machine Learning", "IoT & Arduino", "Routing & Switching", "Ketua Pelaksana", "Event Organizer"],
@@ -147,8 +129,7 @@ const TEKS_ID_JS = {
   "js.berikut": "Foto berikutnya",
   "js.grafik": "Grafik &amp; tampilan",
   "js.repo": "Buka repositori GitHub",
-  "js.privat": "Repositori privat · proyek masih berjalan",
-  "gh.last": "Push terakhir"
+  "js.privat": "Repositori privat · proyek masih berjalan"
 };
 
 /*
