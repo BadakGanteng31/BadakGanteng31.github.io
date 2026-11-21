@@ -113,7 +113,9 @@ const DOKUMENTASI = {
     acara: "HUBLUSOS · HMTK Telkom University",
     deskripsi: "",
     en: { judul: "Staff, External Relations & Social Affairs Department", acara: "HUBLUSOS · HMTK Telkom University" },
-    foto: [],
+    foto: [
+      { src: "dokumentasi/hublusos/01.webp", caption: "Saya (tengah) bersama rekan staff Departemen HUBLUSOS HMTK", en: "Me (center) with fellow staff of the HMTK External Relations & Social Affairs Department" }
+    ],
     link: []
   },
   "sert-rcna": {
