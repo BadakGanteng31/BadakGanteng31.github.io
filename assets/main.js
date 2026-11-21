@@ -73,18 +73,6 @@
     });
   });
 
-  /* ---------- sorotan kursor di kartu ---------- */
-  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    document.querySelectorAll(".project, .award, .contact-card, .learning-list li, .cert, .skill-group, .fields li").forEach(el => {
-      el.classList.add("spot");
-      el.addEventListener("pointermove", e => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        el.style.setProperty("--my", (e.clientY - r.top) + "px");
-      });
-    });
-  }
-
   /* ---------- tema ---------- */
   document.querySelector(".theme-toggle").addEventListener("click", () => {
     root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
