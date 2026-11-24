@@ -26,11 +26,17 @@ const TEKS_EN = {
 
   "hero.alt": "Photo of Deftrian Dwi Wicaksana",
   "id.label": "ID card",
-  "id.flip": "Flip card",
+  "id.flip": "Open a quick profile",
   "id.kind": "Portfolio Card",
   "id.role": "Computer Engineering · Telkom University",
   "id.scan": "Scan to open",
-  "id.hint": "Click the card to flip it",
+  "id.hint": "Click the card to say hi",
+  "ab.t1": "About",
+  "ab.t2": "Me",
+  "ab.proyek": "Projects",
+  "ab.peng": "Experiences",
+  "ab.pres": "Achievements",
+  "ab.more": "Read more ↓",
   "hero.kicker": "Portfolio / 2026",
   "hero.lead": "A Computer Engineering student at Telkom University who builds data-driven solutions, from machine learning models to IoT systems, while leading teams across student organizations and events.",
   "hero.cv": "Download CV",
@@ -120,7 +126,11 @@ const TEKS_EN = {
   "js.berikut": "Next photo",
   "js.grafik": "Charts &amp; screenshots",
   "js.repo": "Open the GitHub repository",
-  "js.privat": "Private repository · project in progress"
+  "js.privat": "Private repository · project in progress",
+  "ab.load1": "Loading profile...",
+  "ab.load2": "Loading skills...",
+  "ab.load3": "Loading experience...",
+  "ab.load4": "Ready!"
 };
 
 const KATA_KETIK = {
@@ -135,7 +145,11 @@ const TEKS_ID_JS = {
   "js.berikut": "Foto berikutnya",
   "js.grafik": "Grafik &amp; tampilan",
   "js.repo": "Buka repositori GitHub",
-  "js.privat": "Repositori privat · proyek masih berjalan"
+  "js.privat": "Repositori privat · proyek masih berjalan",
+  "ab.load1": "Memuat profil...",
+  "ab.load2": "Memuat skill...",
+  "ab.load3": "Memuat pengalaman...",
+  "ab.load4": "Siap!"
 };
 
 /*

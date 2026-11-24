@@ -73,11 +73,41 @@
     });
   });
 
-  /* ---------- kartu ID 3D ---------- */
+  /* ---------- kartu ID 3D + profil singkat ---------- */
   const idcard = document.querySelector(".idcard");
-  if (idcard) {
+  const abDlg = document.getElementById("about-dlg");
+  let abRaf = 0, abTo = 0;
+  function openAbout() {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const num = document.getElementById("ab-num"), fill = document.getElementById("ab-fill"), msg = document.getElementById("ab-msg");
+    abDlg.classList.remove("ready");
+    cancelAnimationFrame(abRaf); clearTimeout(abTo);
+    num.textContent = "0"; fill.style.width = "0";
+    if (!abDlg.open) abDlg.showModal();
+    if (reduce) { abDlg.classList.add("ready"); return; }
+    const msgs = ["ab.load1", "ab.load2", "ab.load3", "ab.load4"], dur = 1500;
+    let start = null;
+    const step = ts => {
+      if (start === null) start = ts;
+      const p = Math.min((ts - start) / dur, 1), v = Math.round((1 - Math.pow(1 - p, 3)) * 100);
+      num.textContent = v; fill.style.width = v + "%";
+      msg.textContent = t(msgs[Math.min(Math.floor(v / 34), 3)]);
+      if (p < 1) abRaf = requestAnimationFrame(step);
+      else abTo = setTimeout(() => abDlg.classList.add("ready"), 280);
+    };
+    abRaf = requestAnimationFrame(step);
+  }
+  if (idcard && abDlg) {
     const inner = idcard.querySelector(".idcard-inner");
-    idcard.addEventListener("click", () => idcard.setAttribute("aria-pressed", idcard.getAttribute("aria-pressed") !== "true"));
+    idcard.addEventListener("click", () => {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) { openAbout(); return; }
+      idcard.classList.add("spin");
+      setTimeout(() => { idcard.classList.remove("spin"); openAbout(); }, 650);
+    });
+    abDlg.querySelector(".ab-close").onclick = () => abDlg.close();
+    abDlg.addEventListener("click", e => { if (e.target === abDlg) abDlg.close(); });
+    abDlg.querySelector(".ab-more").addEventListener("click", () => abDlg.close());
+    abDlg.addEventListener("close", () => { cancelAnimationFrame(abRaf); clearTimeout(abTo); });
     if (matchMedia("(hover: hover) and (pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
       idcard.addEventListener("pointermove", e => {
         const r = idcard.getBoundingClientRect();

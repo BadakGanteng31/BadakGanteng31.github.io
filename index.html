@@ -94,7 +94,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=3e37301c">
+<link rel="stylesheet" href="assets/style.css?v=ed97e301">
 </head>
 <body>
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -134,7 +134,7 @@
         <div class="idcard-wrap" aria-label="Kartu identitas" data-i18n-attr="aria-label:id.label">
           <div class="lanyard" aria-hidden="true"><span>DEFTRIAN · TEKNIK KOMPUTER · DEFTRIAN · TEKNIK KOMPUTER</span></div>
           <div class="clip" aria-hidden="true"></div>
-          <button class="idcard" type="button" aria-pressed="false" aria-label="Balik kartu" data-i18n-attr="aria-label:id.flip">
+          <button class="idcard" type="button" aria-haspopup="dialog" aria-controls="about-dlg" aria-label="Buka profil singkat" data-i18n-attr="aria-label:id.flip">
             <span class="idcard-inner">
               <span class="id-face id-front">
                 <span class="id-top"><b class="id-logo">DW</b><span class="mono" data-i18n="id.kind">Kartu Portofolio</span></span>
@@ -143,16 +143,9 @@
                 <span class="id-role mono" data-i18n="id.role">Teknik Komputer · Telkom University</span>
                 <span class="id-tags"><i>ML</i><i>IoT</i><i>Leadership</i></span>
               </span>
-              <span class="id-face id-back">
-                <span class="id-top"><b class="id-logo">DW</b><span class="mono" data-i18n="id.scan">Pindai untuk membuka</span></span>
-                <img class="id-qr" src="qr/qr-portofolio.png" alt="QR code ke deftrianwicaksana.my.id" width="936" height="936" loading="lazy">
-                <span class="id-name id-url">deftrianwicaksana.my.id</span>
-                <span class="id-role mono">yanriant31@gmail.com</span>
-                <span class="id-role mono">github.com/BadakGanteng31</span>
-              </span>
             </span>
           </button>
-          <p class="id-hint mono" aria-hidden="true"><span data-i18n="id.hint">Klik kartu untuk membalik</span> ↻</p>
+          <p class="id-hint mono" aria-hidden="true"><span data-i18n="id.hint">Klik kartu untuk kenalan</span> →</p>
         </div>
         <div class="hero-text">
           <div class="mono" data-i18n="hero.kicker">Portofolio / 2026</div>
@@ -559,6 +552,35 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </a>
 
+<dialog class="about-dlg" id="about-dlg" aria-labelledby="ab-title">
+  <button class="g-close ab-close" type="button" aria-label="Tutup" data-i18n-attr="aria-label:ctrl.tutup">×</button>
+  <div class="ab-loader" aria-live="polite">
+    <div class="ab-num"><span id="ab-num">0</span><small>%</small></div>
+    <div class="ab-track"><i id="ab-fill"></i></div>
+    <p class="mono" id="ab-msg"></p>
+  </div>
+  <div class="ab-panel">
+    <figure class="ab-photo"><img src="foto-profil.webp" srcset="foto-profil-480.webp 480w, foto-profil.webp 900w" sizes="(min-width: 760px) 340px, 80vw" alt="Foto Deftrian Dwi Wicaksana" data-i18n-attr="alt:hero.alt" loading="lazy"></figure>
+    <div class="ab-body">
+      <h2 id="ab-title"><span data-i18n="ab.t1">Tentang</span> <em data-i18n="ab.t2">Saya</em></h2>
+      <p data-i18n="about.p">Saya mahasiswa Teknik Komputer yang senang mengubah ide menjadi sesuatu yang benar-benar berjalan, entah itu model machine learning, perangkat IoT, atau sebuah acara. Terbiasa berpikir sistematis dan teliti, nyaman bekerja mandiri maupun dalam tim, dan cepat beradaptasi dengan hal baru. Saat ini saya sedang mendalami deep learning dan computer vision sebagai arah tugas akhir.</p>
+      <ul class="ab-skills">
+              <li><span class="ab-skill"><b>Machine Learning</b><span class="mono">90%</span></span><span class="ab-bar"><i style="--v:90%"></i></span></li>
+              <li><span class="ab-skill"><b>Python</b><span class="mono">85%</span></span><span class="ab-bar"><i style="--v:85%"></i></span></li>
+              <li><span class="ab-skill"><b>IoT &amp; Arduino</b><span class="mono">75%</span></span><span class="ab-bar"><i style="--v:75%"></i></span></li>
+              <li><span class="ab-skill"><b>Jaringan (RCNA)</b><span class="mono">70%</span></span><span class="ab-bar"><i style="--v:70%"></i></span></li>
+              <li><span class="ab-skill"><b>Web (Flask, HTML/CSS)</b><span class="mono">70%</span></span><span class="ab-bar"><i style="--v:70%"></i></span></li>
+            </ul>
+      <ul class="ab-stats">
+        <li><b>4</b><span data-i18n="ab.proyek">Proyek</span></li>
+        <li><b>8</b><span data-i18n="ab.peng">Pengalaman</span></li>
+        <li><b>3</b><span data-i18n="ab.pres">Prestasi</span></li>
+      </ul>
+      <a class="btn btn-primary ab-more" href="#tentang" data-i18n="ab.more">Selengkapnya ↓</a>
+    </div>
+  </div>
+</dialog>
+
 <dialog class="gallery" id="gallery" aria-labelledby="g-title">
   <div class="g-head">
     <div>
@@ -570,7 +592,7 @@
   <div class="g-body" id="g-body"></div>
 </dialog>
 
-<script src="assets/data.js?v=2f6e8611"></script>
-<script src="assets/main.js?v=12beb975"></script>
+<script src="assets/data.js?v=37110d65"></script>
+<script src="assets/main.js?v=d871bc23"></script>
 </body>
 </html>
