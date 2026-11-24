@@ -73,6 +73,28 @@
     });
   });
 
+  /* ---------- kartu ID 3D ---------- */
+  const idcard = document.querySelector(".idcard");
+  if (idcard) {
+    const inner = idcard.querySelector(".idcard-inner");
+    idcard.addEventListener("click", () => idcard.setAttribute("aria-pressed", idcard.getAttribute("aria-pressed") !== "true"));
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      idcard.addEventListener("pointermove", e => {
+        const r = idcard.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        idcard.classList.add("tilting");
+        inner.style.setProperty("--ry", (x * 22).toFixed(2) + "deg");
+        inner.style.setProperty("--rx", (-y * 16).toFixed(2) + "deg");
+        idcard.querySelectorAll(".id-face").forEach(f => f.style.setProperty("--shine", (x * 160).toFixed(0) + "%"));
+      });
+      idcard.addEventListener("pointerleave", () => {
+        idcard.classList.remove("tilting");
+        inner.style.removeProperty("--ry"); inner.style.removeProperty("--rx");
+        idcard.querySelectorAll(".id-face").forEach(f => f.style.removeProperty("--shine"));
+      });
+    }
+  }
+
   /* ---------- tema ---------- */
   document.querySelector(".theme-toggle").addEventListener("click", () => {
     root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";

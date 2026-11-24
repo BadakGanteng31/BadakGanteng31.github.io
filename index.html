@@ -94,7 +94,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=e479c166">
+<link rel="stylesheet" href="assets/style.css?v=3e37301c">
 </head>
 <body>
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -130,9 +130,30 @@
   <div class="wrap">
     <div class="hero">
       <div class="hero-top">
-        <figure class="hero-photo">
-          <img src="foto-profil.webp" srcset="foto-profil-480.webp 480w, foto-profil.webp 900w" sizes="(min-width: 860px) min(50vw, 720px), 100vw" alt="Foto Deftrian Dwi Wicaksana" data-i18n-attr="alt:hero.alt" width="900" height="1257" fetchpriority="high">
-        </figure>
+        <!-- Kartu ID 3D: ide dari template portofoliov2 karya Surya Hidayanto (github.com/sryahdyt/portofoliov2) -->
+        <div class="idcard-wrap" aria-label="Kartu identitas" data-i18n-attr="aria-label:id.label">
+          <div class="lanyard" aria-hidden="true"><span>DEFTRIAN · TEKNIK KOMPUTER · DEFTRIAN · TEKNIK KOMPUTER</span></div>
+          <div class="clip" aria-hidden="true"></div>
+          <button class="idcard" type="button" aria-pressed="false" aria-label="Balik kartu" data-i18n-attr="aria-label:id.flip">
+            <span class="idcard-inner">
+              <span class="id-face id-front">
+                <span class="id-top"><b class="id-logo">DW</b><span class="mono" data-i18n="id.kind">Kartu Portofolio</span></span>
+                <img src="kartu-foto.webp" alt="Foto Deftrian Dwi Wicaksana" data-i18n-attr="alt:hero.alt" width="520" height="598" fetchpriority="high">
+                <span class="id-name">Deftrian Dwi Wicaksana</span>
+                <span class="id-role mono" data-i18n="id.role">Teknik Komputer · Telkom University</span>
+                <span class="id-tags"><i>ML</i><i>IoT</i><i>Leadership</i></span>
+              </span>
+              <span class="id-face id-back">
+                <span class="id-top"><b class="id-logo">DW</b><span class="mono" data-i18n="id.scan">Pindai untuk membuka</span></span>
+                <img class="id-qr" src="qr/qr-portofolio.png" alt="QR code ke deftrianwicaksana.my.id" width="936" height="936" loading="lazy">
+                <span class="id-name id-url">deftrianwicaksana.my.id</span>
+                <span class="id-role mono">yanriant31@gmail.com</span>
+                <span class="id-role mono">github.com/BadakGanteng31</span>
+              </span>
+            </span>
+          </button>
+          <p class="id-hint mono" aria-hidden="true"><span data-i18n="id.hint">Klik kartu untuk membalik</span> ↻</p>
+        </div>
         <div class="hero-text">
           <div class="mono" data-i18n="hero.kicker">Portofolio / 2026</div>
           <h1>Deftrian Dwi<br>Wicaksana<span>.</span></h1>
@@ -549,7 +570,7 @@
   <div class="g-body" id="g-body"></div>
 </dialog>
 
-<script src="assets/data.js?v=a3436c0f"></script>
-<script src="assets/main.js?v=4ff48306"></script>
+<script src="assets/data.js?v=2f6e8611"></script>
+<script src="assets/main.js?v=12beb975"></script>
 </body>
 </html>

@@ -25,6 +25,12 @@ const TEKS_EN = {
   "thumb.agri": "View AgriMonitor details",
 
   "hero.alt": "Photo of Deftrian Dwi Wicaksana",
+  "id.label": "ID card",
+  "id.flip": "Flip card",
+  "id.kind": "Portfolio Card",
+  "id.role": "Computer Engineering · Telkom University",
+  "id.scan": "Scan to open",
+  "id.hint": "Click the card to flip it",
   "hero.kicker": "Portfolio / 2026",
   "hero.lead": "A Computer Engineering student at Telkom University who builds data-driven solutions, from machine learning models to IoT systems, while leading teams across student organizations and events.",
   "hero.cv": "Download CV",
