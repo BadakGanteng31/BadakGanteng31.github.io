@@ -107,6 +107,7 @@
     abDlg.querySelector(".ab-close").onclick = () => abDlg.close();
     abDlg.addEventListener("click", e => { if (e.target === abDlg) abDlg.close(); });
     abDlg.querySelector(".ab-more").addEventListener("click", () => abDlg.close());
+    document.querySelectorAll("[data-open-about]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); openAbout(); }));
     abDlg.addEventListener("close", () => { cancelAnimationFrame(abRaf); clearTimeout(abTo); });
     if (matchMedia("(hover: hover) and (pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
       idcard.addEventListener("pointermove", e => {
